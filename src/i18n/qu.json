@@ -154,5 +154,8 @@
   "ui.lang.en": "English",
   "ob.lang.en.sub": "App inglés simipi",
   "install.button": "App-ta churay",
-  "install.sub": "Telefonoykiq qallariyninmanta kichay, huk app hina."
+  "install.sub": "Telefonoykiq qallariyninmanta kichay, huk app hina.",
+  "record.micDenied": "Micrófonoqa wichqasqa kachkan. 1) Chrome-pi direccionpa lluq'inpi íconota ñit'iy → Permisos → Micrófono → Permitir. 2) Manaraq allichakuptin: telefonoq Ajustes → Aplicaciones → Chrome → Permisos → Micrófono → Permitir.",
+  "record.micMissing": "Kay telefonopi micrófono mana tarikunchu.",
+  "record.micBusy": "Huk app micrófonota llamk'achichkan (llamada otaq WhatsApp hina). Wichqay, hinaspa wakmanta kallpachakuy."
 }

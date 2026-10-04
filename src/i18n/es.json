@@ -153,5 +153,8 @@
   "ui.lang.en": "English",
   "ob.lang.en.sub": "La app en inglés",
   "install.button": "Instalar app",
-  "install.sub": "Ábrela desde tu pantalla de inicio, como cualquier app."
+  "install.sub": "Ábrela desde tu pantalla de inicio, como cualquier app.",
+  "record.micDenied": "El micrófono está bloqueado. 1) En Chrome toque el ícono a la izquierda de la dirección → Permisos → Micrófono → Permitir. 2) Si sigue igual: Ajustes del teléfono → Aplicaciones → Chrome → Permisos → Micrófono → Permitir.",
+  "record.micMissing": "No se encontró un micrófono en este teléfono.",
+  "record.micBusy": "Otra app está usando el micrófono (por ejemplo una llamada o WhatsApp). Ciérrela y vuelva a intentar."
 }

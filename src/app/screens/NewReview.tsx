@@ -7,6 +7,18 @@ import { processFeedback } from '../processing';
 import { navigate } from '../router';
 import { art, Icon, Screen, T } from '../ui';
 
+// Algunos Android rechazan restricciones como channelCount: se reintenta con audio simple.
+async function openMic(): Promise<MediaStream> {
+  try {
+    return await navigator.mediaDevices.getUserMedia({ audio: { channelCount: 1, echoCancellation: true, noiseSuppression: true } });
+  } catch (err) {
+    if (err instanceof DOMException && (err.name === 'OverconstrainedError' || err.name === 'TypeError')) {
+      return navigator.mediaDevices.getUserMedia({ audio: true });
+    }
+    throw err;
+  }
+}
+
 const normalizePhone = (raw: string) => raw.replace(/[\s()-]/g, '');
 const isE164 = (p: string) => /^\+[1-9]\d{7,14}$/.test(p);
 
@@ -35,9 +47,13 @@ export default function NewReview() {
     setError(null);
     let stream: MediaStream;
     try {
-      stream = await navigator.mediaDevices.getUserMedia({ audio: { channelCount: 1, echoCancellation: true, noiseSuppression: true } });
-    } catch {
-      setError(t('record.noMic'));
+      stream = await openMic();
+    } catch (err) {
+      // Cada causa con su arreglo: permiso del sitio en Chrome, permiso de Chrome en Android, sin micrófono.
+      const name = err instanceof DOMException ? err.name : '';
+      setError(t(name === 'NotAllowedError' || name === 'SecurityError' ? 'record.micDenied'
+        : name === 'NotFoundError' ? 'record.micMissing'
+        : name === 'NotReadableError' ? 'record.micBusy' : 'record.noMic'));
       return;
     }
     const chunks: Blob[] = [];
@@ -161,7 +177,7 @@ export default function NewReview() {
           <Icon name="info" />
           {consentRecording ? t('record.hint') : t('consent.needRecording')}
         </p>
-        {error && <p className="bad">{error}</p>}
+        {error && <p className="warn mic-error">{error}</p>}
       </section>
     </Screen>
   );

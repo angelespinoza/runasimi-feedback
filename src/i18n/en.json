@@ -153,5 +153,8 @@
   "ui.lang.en": "English",
   "ob.lang.en.sub": "The app in English",
   "install.button": "Install app",
-  "install.sub": "Open it from your home screen, like any app."
+  "install.sub": "Open it from your home screen, like any app.",
+  "record.micDenied": "The microphone is blocked. 1) In Chrome tap the icon left of the address → Permissions → Microphone → Allow. 2) If it still fails: phone Settings → Apps → Chrome → Permissions → Microphone → Allow.",
+  "record.micMissing": "No microphone was found on this phone.",
+  "record.micBusy": "Another app is using the microphone (for example a call or WhatsApp). Close it and try again."
 }

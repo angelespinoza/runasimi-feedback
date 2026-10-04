@@ -287,3 +287,4 @@ details summary { cursor: pointer; color: var(--muted); }
   border: 1px solid var(--accent); background: color-mix(in srgb, var(--accent) 12%, var(--card)); font-size: 1.6rem; }
 .install-card span { display: flex; flex-direction: column; font-size: 1rem; }
 .install-card small { color: var(--muted); font-size: 0.88rem; }
+.mic-error { position: relative; z-index: 1; text-align: left; line-height: 1.45; margin-top: 14px; }
