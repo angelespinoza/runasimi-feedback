@@ -129,7 +129,7 @@
   "ob.next": "Siguiente",
   "ob.start": "Empezar",
   "ob.welcome": "Bienvenido a",
-  "ob.brand": "Noor",
+  "ob.brand": "Finca",
   "ob.lead": "Convierte las voces de tus visitantes en ideas para tu finca.",
   "ob.step1": "Recoge sus opiniones",
   "ob.step1.sub": "Graba reseñas de tus visitantes fácilmente.",
@@ -149,5 +149,7 @@
   "ob.lang.es.sub": "La app en español",
   "settings.intro": "Ver la introducción",
   "setup.waiting": "Sin conexión. La descarga sigue sola cuando vuelva la señal; no se pierde lo descargado.",
-  "setup.resume": "Continuar descarga"
+  "setup.resume": "Continuar descarga",
+  "ui.lang.en": "English",
+  "ob.lang.en.sub": "La app en inglés"
 }

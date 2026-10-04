@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react';
-import { setLang, t, useLang, type Key, type UiLang } from '../i18n';
+import { setLang, t, UI_LANGS, useLang, type Key } from '../i18n';
 import { navigate } from './router';
 
 // Ilustraciones de diseno/ convertidas a WebP en public/ui (las precachea el service worker).
@@ -57,13 +57,12 @@ export function T({ k, as: Tag = 'span' }: { k: Key; as?: 'span' | 'h1' | 'h2' |
   return <Tag className="t">{t(k)}</Tag>;
 }
 
-// Selector de idioma de la interfaz; quechua por defecto.
+// Selector de idioma de la interfaz (quechua por defecto; castellano e inglés para la demo).
 export function LangToggle() {
   const lang = useLang();
-  const options: UiLang[] = ['qu', 'es'];
   return (
     <div className="lang-toggle" role="radiogroup" aria-label={t('ui.lang')}>
-      {options.map((l) => (
+      {UI_LANGS.map((l) => (
         <button key={l} role="radio" aria-checked={lang === l} className={lang === l ? 'on' : ''} onClick={() => setLang(l)}>
           {t(`ui.lang.${l}`)}
         </button>

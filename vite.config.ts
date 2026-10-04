@@ -23,7 +23,7 @@ export default defineConfig({
         maximumFileSizeToCacheInBytes: 40 * 1024 * 1024, // el WASM de onnxruntime pesa ~27 MB
       },
       manifest: {
-        name: 'Visitas de la finca',
+        name: 'Finca',
         short_name: 'Finca',
         description: 'Reseñas de visitantes en quechua y español, sin internet.',
         lang: 'es',

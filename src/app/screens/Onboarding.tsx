@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import { setLang, t, useLang, type UiLang } from '../../i18n';
+import { setLang, t, UI_LANGS, useLang } from '../../i18n';
 import { art, Icon, Landscape } from '../ui';
 
-// Walkthrough del primer inicio: qué hace la app, que funciona sin internet y el idioma.
+// Walkthrough del primer inicio: idioma, qué hace la app y que funciona sin internet.
 // Al terminar sigue la creación del PIN (Lock).
 const STORAGE_KEY = 'onboarded';
 
@@ -44,6 +44,31 @@ export default function Onboarding({ onDone }: { onDone: () => void }) {
 
       {page === 0 && (
         <>
+          {/* Todavía no hay idioma elegido: el título va en los tres. */}
+          <h1 className="ob-lang-title">
+            Simiykita akllay
+            <em>Elige tu idioma</em>
+            <small>Choose your language</small>
+          </h1>
+          <div className="lang-cards" role="radiogroup">
+            {UI_LANGS.map((l) => (
+              <button key={l} role="radio" aria-checked={lang === l} className={`lang-card ${lang === l ? 'on' : ''}`}
+                onClick={() => setLang(l)}>
+                <span>
+                  {t(`ui.lang.${l}`)}
+                  <small>{t(`ob.lang.${l}.sub`)}</small>
+                </span>
+                <span className="radio" aria-hidden />
+              </button>
+            ))}
+          </div>
+          <p className="lead small">{t('ob.langLead')}</p>
+          <img className="ob-hero" src={art('ob-voice')} alt="" aria-hidden style={{ width: '60%' }} />
+        </>
+      )}
+
+      {page === 1 && (
+        <>
           <h1>{t('ob.welcome')} <em>{t('ob.brand')}</em></h1>
           <p className="lead">{t('ob.lead')}</p>
           <ol className="steps">
@@ -72,7 +97,7 @@ export default function Onboarding({ onDone }: { onDone: () => void }) {
         </>
       )}
 
-      {page === 1 && (
+      {page === 2 && (
         <>
           <h1>{t('ob.offlineTitle')}</h1>
           <img className="ob-hero" src={art('ob-offline')} alt="" aria-hidden />
@@ -84,26 +109,6 @@ export default function Onboarding({ onDone }: { onDone: () => void }) {
               <span>{t('ob.private.sub')}</span>
             </div>
           </div>
-        </>
-      )}
-
-      {page === 2 && (
-        <>
-          <h1>{t('ob.langTitle')}</h1>
-          <p className="lead">{t('ob.langLead')}</p>
-          <div className="lang-cards" role="radiogroup">
-            {(['qu', 'es'] as UiLang[]).map((l) => (
-              <button key={l} role="radio" aria-checked={lang === l} className={`lang-card ${lang === l ? 'on' : ''}`}
-                onClick={() => setLang(l)}>
-                <span>
-                  {t(`ui.lang.${l}`)}
-                  <small>{t(`ob.lang.${l}.sub`)}</small>
-                </span>
-                <span className="radio" aria-hidden />
-              </button>
-            ))}
-          </div>
-          <img className="ob-hero" src={art('ob-voice')} alt="" aria-hidden style={{ width: '70%' }} />
         </>
       )}
 

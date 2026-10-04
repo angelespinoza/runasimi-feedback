@@ -155,7 +155,7 @@ export default function Reply({ feedbackId }: { feedbackId: string }) {
           <section className="card">
             <T k="reply.says" as="h2" />
             {/* Noor lee la respuesta en el idioma de la interfaz. */}
-            <p>{uiLang === 'qu' && quFixed ? quFixed : textEs}</p>
+            <p>{uiLang === 'qu' && quFixed ? quFixed : uiLang === 'en' ? textEn : textEs}</p>
           </section>
 
           <section>

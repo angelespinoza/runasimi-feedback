@@ -130,7 +130,7 @@
   "ob.next": "Qatiq",
   "ob.start": "Qallariy",
   "ob.welcome": "Allin hamusqayki",
-  "ob.brand": "Noor",
+  "ob.brand": "Finca",
   "ob.lead": "Watukuqkunaq rimasqanta chakraykipaq yuyaykunaman tikray.",
   "ob.step1": "Yuyayninkuta huñuy",
   "ob.step1.sub": "Watukuqkunaq rimasqanta mana sasachakuspa grabay.",
@@ -150,5 +150,7 @@
   "ob.lang.es.sub": "App castellanopi",
   "settings.intro": "Qallariy willakuyta qhaway",
   "setup.waiting": "Mana internet kanchu. Señal kutimuptin kikillanmanta uraykachinqa; uraykachisqaqa manam chinkanchu.",
-  "setup.resume": "Uraykachiyta qatiy"
+  "setup.resume": "Uraykachiyta qatiy",
+  "ui.lang.en": "English",
+  "ob.lang.en.sub": "App inglés simipi"
 }

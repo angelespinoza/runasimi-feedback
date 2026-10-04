@@ -100,7 +100,7 @@ details summary { cursor: pointer; color: var(--muted); }
 
 /* ── Selector de idioma ─────────────────────── */
 .lang-toggle { display: inline-flex; border: 1px solid var(--line); border-radius: 999px; padding: 4px; background: rgb(27 21 17 / 0.6); flex: none; }
-.lang-toggle button { border: none; border-radius: 999px; min-height: 40px; padding: 6px 20px; font-size: 0.98rem; color: var(--fg); background: none; }
+.lang-toggle button { border: none; border-radius: 999px; min-height: 40px; padding: 6px 14px; font-size: 0.92rem; color: var(--fg); background: none; }
 .lang-toggle button.on { background: var(--accent); color: var(--accent-ink); font-weight: 700; }
 .segmented { display: grid; grid-template-columns: repeat(3, 1fr); border: 1px solid var(--line); border-radius: 18px; overflow: hidden; background: var(--bg-2); }
 .segmented button { border: none; border-radius: 0; color: var(--fg); min-height: 54px; background: none; }
@@ -173,6 +173,8 @@ details summary { cursor: pointer; color: var(--muted); }
 .pager span.on { background: var(--accent); }
 .ob-foot .primary { position: relative; z-index: 2; max-width: 420px; margin: 0 auto; display: flex; }
 .ob-foot .landscape { margin-top: -30px; }
+.ob-lang-title em { font-size: 0.75em; margin-top: 6px; }
+.ob-lang-title small { display: block; font-size: 0.5em; font-weight: 500; color: var(--muted); margin-top: 6px; }
 .lang-cards { display: grid; gap: 12px; margin: 10px 0; }
 .lang-card { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 18px 20px; border-radius: var(--radius);
   text-align: left; font-size: 1.15rem; font-weight: 700; }
