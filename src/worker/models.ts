@@ -1,9 +1,13 @@
 import { env, pipeline, type ProgressInfo } from '@huggingface/transformers';
 import { MODELS, type Device, type DType, type ModelKey } from '../config';
+import { transformersCache } from './modelStore';
 
-// Los modelos se descargan una vez y quedan en Cache Storage.
+// Los modelos se descargan una vez (app/download.ts) y quedan en Cache Storage por trozos;
+// transformers.js los lee desde ahí con una caché propia (worker/modelStore.ts).
 env.allowLocalModels = false;
-env.useBrowserCache = true;
+env.useBrowserCache = false;
+env.useCustomCache = true;
+env.customCache = transformersCache;
 
 export type LoadOptions = {
   device: Device;
