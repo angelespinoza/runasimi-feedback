@@ -96,12 +96,12 @@ async function put(cache: Cache, key: string, body: Blob, type = 'application/oc
   }
 }
 
+// Tamaño remoto, o 0 si el servidor no lo dice: Hugging Face sirve comprimidos los archivos chicos
+// (configs, tokenizers) sin content-length. Esos se bajan enteros, de una vez.
 async function remoteSize(url: string): Promise<number> {
   const res = await fetch(url, { method: 'HEAD' });
   check(res, url);
-  const len = Number(res.headers.get('content-length'));
-  if (!len) throw new Error(`Sin tamaño: ${url}`);
-  return len;
+  return Number(res.headers.get('content-length')) || 0;
 }
 
 // Bytes ya descargados (completos o en trozos) y total esperado, sin tocar la red.
@@ -154,14 +154,15 @@ export async function downloadModels(onProgress: (p: DownloadProgress) => void):
     sizes.set(url, local ?? (await retry(() => remoteSize(url), setWaiting)));
     done.set(url, local ?? 0);
   }
-  total = [...sizes.values()].reduce((a, b) => a + b, 0);
+  // Los de tamaño desconocido (chicos) se estiman en 0 hasta bajarlos.
+  total = Math.max(total, [...sizes.values()].reduce((a, b) => a + b, 0));
   report();
 
   for (const url of list) {
     if (await models.match(url)) continue;
     const size = sizes.get(url)!;
 
-    // Archivos chicos (configs, tokenizers): de una vez.
+    // Archivos chicos o de tamaño desconocido (configs, tokenizers): de una vez.
     if (size <= CHUNK) {
       const blob = await retry(async () => {
         const res = await fetch(url);
