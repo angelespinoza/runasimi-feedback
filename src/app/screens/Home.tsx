@@ -67,8 +67,8 @@ export default function Home() {
               </p>
               {download.waiting && (
                 <p className="warn">
-                  {download.reason === 'offline' ? t('setup.waiting') : t('setup.retrying')}
-                  {download.reason && download.reason !== 'offline' && <small className="reason"> ({download.reason})</small>}
+                  {download.reason?.startsWith('offline') ? t('setup.waiting') : t('setup.retrying')}
+                  {download.reason && <small className="reason">({download.reason})</small>}
                 </p>
               )}
             </>
@@ -78,6 +78,7 @@ export default function Home() {
             </button>
           )}
           {error && <p className="bad">{error}</p>}
+          <p className="muted small">v{__BUILD__}</p>
         </section>
       ) : (
         <div className="offline-banner">

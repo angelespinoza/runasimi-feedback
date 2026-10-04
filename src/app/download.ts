@@ -59,7 +59,9 @@ async function retry<T>(fn: () => Promise<T>, onWaiting: (w: boolean, reason?: s
       return out;
     } catch (err) {
       if (err instanceof FatalError) throw err;
-      onWaiting(true, navigator.onLine ? (err instanceof Error ? err.message : String(err)) : 'offline');
+      // Siempre el error real: `navigator.onLine` a veces dice false con wifi (apps instaladas, VPN).
+      const msg = err instanceof Error ? `${err.name}: ${err.message}` : String(err);
+      onWaiting(true, navigator.onLine ? msg : `offline · ${msg}`);
       const delay = Math.min(30_000, 2_000 * 2 ** Math.min(attempt, 4));
       if (navigator.onLine) await sleep(delay);
       else await waitOnline(delay);

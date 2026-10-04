@@ -52,6 +52,8 @@ export default defineConfig({
       devOptions: { enabled: false },
     }),
   ],
+  // Versión visible en la app (commit en Vercel) para saber qué build corre en el teléfono.
+  define: { __BUILD__: JSON.stringify(process.env.VERCEL_GIT_COMMIT_SHA?.slice(0, 7) ?? 'dev') },
   worker: { format: 'es' },
   server: { headers: isolationHeaders },
   preview: { headers: isolationHeaders },
