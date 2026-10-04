@@ -148,5 +148,7 @@
   "ob.langLead": "Qallariy pantallapi maypachapas tikrayta atinki.",
   "ob.lang.qu.sub": "App runasimipi",
   "ob.lang.es.sub": "App castellanopi",
-  "settings.intro": "Qallariy willakuyta qhaway"
+  "settings.intro": "Qallariy willakuyta qhaway",
+  "setup.waiting": "Mana internet kanchu. Señal kutimuptin kikillanmanta uraykachinqa; uraykachisqaqa manam chinkanchu.",
+  "setup.resume": "Uraykachiyta qatiy"
 }

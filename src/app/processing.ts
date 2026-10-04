@@ -4,11 +4,11 @@ import { getFeedback, updateFeedback } from '../data/db';
 import { getClient } from '../worker/client';
 import type { ProcessResult, Stage } from '../worker/process';
 import { decodeTo16kMono } from './audio';
-import { cachedBytesByModel } from './modelCache';
+import { allModelFilesCached, downloadModels } from './download';
 
 // Estado global del procesamiento: sigue corriendo aunque Noor cambie de pantalla.
 // `finished` sube cada vez que termina un trabajo, para que las pantallas relean la base.
-type State = { modelsReady: boolean; download?: { loaded: number; total: number }; stages: Record<string, Stage>; finished: number };
+type State = { modelsReady: boolean; download?: { loaded: number; total: number; waiting?: boolean }; stages: Record<string, Stage>; finished: number };
 let state: State = { modelsReady: false, stages: {}, finished: 0 };
 const listeners = new Set<() => void>();
 const set = (patch: Partial<State>) => {
@@ -32,10 +32,7 @@ async function preferredDevice(): Promise<Device> {
   return adapter ? 'webgpu' : 'wasm';
 }
 
-export async function modelsCached(): Promise<boolean> {
-  const sizes = await cachedBytesByModel();
-  return Object.values(MODELS).every((m) => (sizes[m.id] ?? 0) > 1e6);
-}
+export const modelsCached = allModelFilesCached;
 
 const EXPECTED_BYTES = Object.values(MODELS).reduce((s, m) => s + m.approxBytes, 0);
 
@@ -45,6 +42,9 @@ let ensuring: Promise<void> | null = null;
 export function ensureModels(): Promise<void> {
   ensuring ??= (async () => {
     await navigator.storage?.persist?.();
+    // Primero se bajan los archivos por partes (reanudable, poca memoria); después el worker
+    // los carga desde el caché sin descargar nada.
+    if (!(await allModelFilesCached())) await downloadModels((p) => set({ download: p }));
     const files: Record<string, { loaded: number; total: number }> = {};
     await getClient().call({ type: 'ensure', device: await preferredDevice() }, (e) => {
       if (e.type !== 'progress') return;

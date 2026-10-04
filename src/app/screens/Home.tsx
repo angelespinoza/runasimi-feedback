@@ -3,6 +3,7 @@ import { listFeedback } from '../../data/db';
 import type { Feedback } from '../../data/types';
 import { t, useLang } from '../../i18n';
 import { mb } from '../modelCache';
+import { downloadedBytes } from '../download';
 import { ensureModels, modelsCached, useProcessing } from '../processing';
 import { navigate } from '../router';
 import { art, Icon, Landscape, LangToggle, T } from '../ui';
@@ -16,8 +17,10 @@ export default function Home() {
   const [error, setError] = useState<string | null>(null);
   const [showAll, setShowAll] = useState(false);
 
+  const [partial, setPartial] = useState(0);
   useEffect(() => {
     void modelsCached().then(setCached);
+    void downloadedBytes().then((d) => setPartial(d.loaded));
   }, [modelsReady]);
 
   useEffect(() => {
@@ -58,10 +61,11 @@ export default function Home() {
               <p className="muted">
                 {t('setup.downloading')} {mb(download.loaded)} / {mb(download.total)}
               </p>
+              {download.waiting && <p className="warn">{t('setup.waiting')}</p>}
             </>
           ) : (
             <button className="primary" onClick={startDownload}>
-              {t('setup.download')}
+              {partial > 1e6 ? `${t('setup.resume')} (${mb(partial)})` : t('setup.download')}
             </button>
           )}
           {error && <p className="bad">{error}</p>}

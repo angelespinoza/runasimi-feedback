@@ -147,5 +147,7 @@
   "ob.langLead": "Puedes cambiarlo cuando quieras en la pantalla de inicio.",
   "ob.lang.qu.sub": "La app en quechua",
   "ob.lang.es.sub": "La app en español",
-  "settings.intro": "Ver la introducción"
+  "settings.intro": "Ver la introducción",
+  "setup.waiting": "Sin conexión. La descarga sigue sola cuando vuelva la señal; no se pierde lo descargado.",
+  "setup.resume": "Continuar descarga"
 }
