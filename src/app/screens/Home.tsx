@@ -5,6 +5,7 @@ import { t, useLang } from '../../i18n';
 import { mb } from '../modelCache';
 import { downloadedBytes } from '../download';
 import { promptInstall, useCanInstall } from '../install';
+import { useOnline } from '../online';
 import { ensureModels, modelsCached, useProcessing } from '../processing';
 import { navigate } from '../router';
 import { art, Icon, Landscape, LangToggle, T } from '../ui';
@@ -18,6 +19,7 @@ export default function Home() {
   const [error, setError] = useState<string | null>(null);
   const [showAll, setShowAll] = useState(false);
   const canInstall = useCanInstall();
+  const online = useOnline();
 
   const [partial, setPartial] = useState(0);
   useEffect(() => {
@@ -63,7 +65,12 @@ export default function Home() {
               <p className="muted">
                 {t('setup.downloading')} {mb(download.loaded)} / {mb(download.total)}
               </p>
-              {download.waiting && <p className="warn">{t('setup.waiting')}</p>}
+              {download.waiting && (
+                <p className="warn">
+                  {download.reason === 'offline' ? t('setup.waiting') : t('setup.retrying')}
+                  {download.reason && download.reason !== 'offline' && <small className="reason"> ({download.reason})</small>}
+                </p>
+              )}
             </>
           ) : (
             <button className="primary" onClick={startDownload}>
@@ -76,7 +83,8 @@ export default function Home() {
         <div className="offline-banner">
           <Icon name="wifiOff" />
           <div>
-            <strong>{t('home.offline')}</strong>
+            {/* Con señal: la app funciona igual sin internet. Sin señal: aviso de modo sin conexión. */}
+            <strong>{t(online ? 'home.worksOffline' : 'home.offline')}</strong>
             <span>{t('home.offline.sub')}</span>
           </div>
           <img src={art('offline-landscape')} alt="" aria-hidden />

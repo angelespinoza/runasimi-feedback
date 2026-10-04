@@ -288,3 +288,4 @@ details summary { cursor: pointer; color: var(--muted); }
 .install-card span { display: flex; flex-direction: column; font-size: 1rem; }
 .install-card small { color: var(--muted); font-size: 0.88rem; }
 .mic-error { position: relative; z-index: 1; text-align: left; line-height: 1.45; margin-top: 14px; }
+.warn .reason { display: block; opacity: 0.8; font-size: 0.8rem; overflow-wrap: anywhere; margin-top: 4px; }

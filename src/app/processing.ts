@@ -8,7 +8,7 @@ import { allModelFilesCached, downloadModels } from './download';
 
 // Estado global del procesamiento: sigue corriendo aunque Noor cambie de pantalla.
 // `finished` sube cada vez que termina un trabajo, para que las pantallas relean la base.
-type State = { modelsReady: boolean; download?: { loaded: number; total: number; waiting?: boolean }; stages: Record<string, Stage>; finished: number };
+type State = { modelsReady: boolean; download?: { loaded: number; total: number; waiting?: boolean; reason?: string }; stages: Record<string, Stage>; finished: number };
 let state: State = { modelsReady: false, stages: {}, finished: 0 };
 const listeners = new Set<() => void>();
 const set = (patch: Partial<State>) => {

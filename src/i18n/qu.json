@@ -157,5 +157,7 @@
   "install.sub": "Telefonoykiq qallariyninmanta kichay, huk app hina.",
   "record.micDenied": "Micrófonoqa wichqasqa kachkan. 1) Chrome-pi direccionpa lluq'inpi íconota ñit'iy → Permisos → Micrófono → Permitir. 2) Manaraq allichakuptin: telefonoq Ajustes → Aplicaciones → Chrome → Permisos → Micrófono → Permitir.",
   "record.micMissing": "Kay telefonopi micrófono mana tarikunchu.",
-  "record.micBusy": "Huk app micrófonota llamk'achichkan (llamada otaq WhatsApp hina). Wichqay, hinaspa wakmanta kallpachakuy."
+  "record.micBusy": "Huk app micrófonota llamk'achichkan (llamada otaq WhatsApp hina). Wichqay, hinaspa wakmanta kallpachakuy.",
+  "home.worksOffline": "Mana internetwan llamk'an",
+  "setup.retrying": "Uraykachiypi sasachakuy karqa; kikillanmanta wakmanta kallpachakun. Uraykachisqaqa manam chinkanchu."
 }

@@ -33,7 +33,8 @@ const urls = () =>
 // Clave de cada trozo: fuera de /<repo>/resolve/ para que no cuente como modelo ya descargado.
 const partKey = (url: string, i: number) => `${location.origin}/__model-parts/${encodeURIComponent(url)}/${i}`;
 
-export type DownloadProgress = { loaded: number; total: number; waiting: boolean };
+// `waiting`: se está reintentando; `reason`: por qué (sin internet o el error concreto).
+export type DownloadProgress = { loaded: number; total: number; waiting: boolean; reason?: string };
 
 const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 
@@ -50,7 +51,7 @@ const waitOnline = (ms: number) =>
   });
 
 // Reintenta para siempre con espera creciente: una mala señal en la finca no debe perder lo bajado.
-async function retry<T>(fn: () => Promise<T>, onWaiting: (w: boolean) => void): Promise<T> {
+async function retry<T>(fn: () => Promise<T>, onWaiting: (w: boolean, reason?: string) => void): Promise<T> {
   for (let attempt = 0; ; attempt++) {
     try {
       const out = await fn();
@@ -58,7 +59,7 @@ async function retry<T>(fn: () => Promise<T>, onWaiting: (w: boolean) => void): 
       return out;
     } catch (err) {
       if (err instanceof FatalError) throw err;
-      onWaiting(true);
+      onWaiting(true, navigator.onLine ? (err instanceof Error ? err.message : String(err)) : 'offline');
       const delay = Math.min(30_000, 2_000 * 2 ** Math.min(attempt, 4));
       if (navigator.onLine) await sleep(delay);
       else await waitOnline(delay);
@@ -136,10 +137,12 @@ export async function downloadModels(onProgress: (p: DownloadProgress) => void):
   const done = new Map<string, number>();
   let total = Object.values(MODELS).reduce((s, m) => s + m.approxBytes, 0);
   let waiting = false;
-  const report = () => onProgress({ loaded: [...done.values()].reduce((a, b) => a + b, 0), total, waiting });
-  const setWaiting = (w: boolean) => {
-    if (w === waiting) return;
+  let reason: string | undefined;
+  const report = () => onProgress({ loaded: [...done.values()].reduce((a, b) => a + b, 0), total, waiting, reason });
+  const setWaiting = (w: boolean, why?: string) => {
+    if (w === waiting && why === reason) return;
     waiting = w;
+    reason = why;
     report();
   };
 
