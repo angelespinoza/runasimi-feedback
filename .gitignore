@@ -28,3 +28,4 @@ eval/data/
 eval/flores_outputs.jsonl
 
 .ruff_cache/
+.vercel
