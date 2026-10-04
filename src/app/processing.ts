@@ -73,7 +73,7 @@ export function processFeedback(id: string): Promise<void> {
       await ensureModels();
       const audio = fb.audioBlob ? await decodeTo16kMono(fb.audioBlob) : undefined;
       const { data } = await getClient().call<ProcessResult>(
-        { type: 'process', audio, text: audio ? undefined : fb.transcriptEn },
+        { type: 'process', audio, text: audio ? undefined : fb.transcriptEn, lang: fb.lang },
         (e) => {
           if (e.type === 'stage') set({ stages: { ...state.stages, [id]: e.stage } });
         },

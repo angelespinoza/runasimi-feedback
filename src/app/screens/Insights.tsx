@@ -6,6 +6,7 @@ import { t, type Key } from '../../i18n';
 import { navigate } from '../router';
 import { Screen, T } from '../ui';
 import { FeedbackRow } from './FeedbackRow';
+import { MoreIdeas } from './MoreIdeas';
 
 const labelKey = (i: Insight): Key => (i.kind === 'unclear' ? 'class.unclear' : (`${i.kind}.${i.id}` as Key));
 
@@ -61,6 +62,7 @@ export default function Insights() {
               <ul className="list"><InsightRow insight={unclear} total={total} /></ul>
             </section>
           )}
+          <MoreIdeas items={items} />
         </>
       )}
     </Screen>

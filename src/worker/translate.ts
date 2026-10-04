@@ -8,11 +8,16 @@ export function splitSentences(text: string): string[] {
   return [...segmenter.segment(text)].map((s) => s.segment.trim()).filter(Boolean);
 }
 
-// Para el quechua se corta además en cláusulas (comas y antes de but/because/and/so):
+// Para el quechua se corta además en cláusulas (comas y antes de but/because/and/so, o pero/porque/y/así que):
 // NLLB traduce mucho mejor frases cortas, y así cada trozo pasa o no el filtro por separado.
-export function splitClauses(sentence: string): string[] {
+const CONJUNCTIONS = {
+  en: /,\s*|;\s*|\s+(?=(?:but|because|and|so)\s)/i,
+  es: /,\s*|;\s*|\s+(?=(?:pero|porque|y|así que)\s)/i,
+};
+
+export function splitClauses(sentence: string, lang: 'en' | 'es' = 'en'): string[] {
   const parts = sentence
-    .split(/,\s*|;\s*|\s+(?=(?:but|because|and|so)\s)/i)
+    .split(CONJUNCTIONS[lang])
     .map((c) => c.trim())
     .filter(Boolean);
   // Las cláusulas de una sola palabra se pegan a la anterior.

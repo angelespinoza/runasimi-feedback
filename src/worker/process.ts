@@ -1,4 +1,4 @@
-import { LANG, QU_ROUTE, QU_THRESHOLD } from '../config';
+import { LANG, QU_ROUTE, QU_THRESHOLD, type SpeechLang } from '../config';
 import type { IntentId, Scored, Segment, TopicId } from '../data/types';
 import { transcribe } from './asr';
 import { classify } from './classify';
@@ -20,34 +20,38 @@ export type ProcessResult = {
 };
 
 // Pipeline del SPEC. Ningún paso genera texto libre hacia el visitante.
+// Reseña en castellano: Whisper transcribe en castellano y se salta la traducción EN → ES.
 export async function processReview(
-  input: { audio?: Float32Array; text?: string },
+  input: { audio?: Float32Array; text?: string; lang?: SpeechLang },
   onStage: (s: Stage) => void,
 ): Promise<ProcessResult> {
+  const lang = input.lang ?? 'en';
   let transcriptEn = input.text?.trim() ?? '';
   let truncated = false;
   if (input.audio) {
     onStage('asr');
-    const asr = await transcribe(input.audio);
+    const asr = await transcribe(input.audio, lang);
     transcriptEn = asr.text;
     truncated = asr.truncated;
   }
   const sentences = splitSentences(transcriptEn);
   if (!sentences.length) throw new Error('No se entendió ninguna palabra en el audio');
 
+  const toEs = (t: string) => (lang === 'es' ? Promise.resolve(t) : translate(t, LANG.en, LANG.es));
   onStage('es');
   const es: string[] = [];
-  for (const s of sentences) es.push(await translate(s, LANG.en, LANG.es));
+  for (const s of sentences) es.push(await toEs(s));
 
   // Quechua por cláusula: cada trozo corto se traduce, se verifica y se muestra por separado.
   onStage('qu');
-  const clauses = sentences.flatMap((s) => splitClauses(s));
+  const clauses = sentences.flatMap((s) => splitClauses(s, lang));
   const clauseEs: string[] = [];
   const clauseQu: string[] = [];
   for (const c of clauses) {
-    const cEs = clauses.length === sentences.length ? es[clauseEs.length] : await translate(c, LANG.en, LANG.es);
+    const cEs = clauses.length === sentences.length ? es[clauseEs.length] : await toEs(c);
     clauseEs.push(cEs);
-    clauseQu.push(QU_ROUTE === 'direct' ? await translate(c, LANG.en, LANG.qu) : await translate(cEs, LANG.es, LANG.qu));
+    const direct = QU_ROUTE === 'direct' && lang === 'en';
+    clauseQu.push(direct ? await translate(c, LANG.en, LANG.qu) : await translate(cEs, LANG.es, LANG.qu));
   }
 
   // Confianza por cláusula: retrotraducir QU → ES y comparar con el ES directo (chrF, 0–1).
@@ -91,7 +95,7 @@ export async function translateReplyToQu(textEs: string): Promise<{ qu: string; 
   const parts: string[] = [];
   const doubtful: string[] = [];
   for (const sentence of splitSentences(textEs)) {
-    for (const clause of splitClauses(sentence)) {
+    for (const clause of splitClauses(sentence, 'es')) {
       const qu = await translate(clause, LANG.es, LANG.qu);
       const back = await translate(qu, LANG.qu, LANG.es);
       if (chrF(back, clause) < QU_THRESHOLD || isDegenerate(qu)) doubtful.push(qu);

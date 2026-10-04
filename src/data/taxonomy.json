@@ -11,7 +11,11 @@
       "Watching them roast the beans was fun.",
       "The coffee was a bit too bitter for me.",
       "I enjoyed learning the process from cherry to cup.",
-      "The fresh roasted coffee smelled wonderful."
+      "The fresh roasted coffee smelled wonderful.",
+      "The coffee is excellent quality.",
+      "Really good coffee, highly recommended.",
+      "Their coffee is delicious and very smooth.",
+      "The coffee has a great flavor."
     ],
     "landscape": [
       "The view of the valley was beautiful.",
@@ -60,7 +64,11 @@
       "I couldn't pay by card.",
       "There was no information in English.",
       "The road to get there was very difficult.",
-      "We were cold, they should warn about the weather."
+      "We were cold, they should warn about the weather.",
+      "I would like you to have other flavors.",
+      "It would be nice to offer more coffee varieties.",
+      "You should sell other products, like chocolate or tea.",
+      "I wish there were more options to choose from."
     ]
   },
   "intents": {
@@ -118,11 +126,11 @@
       "I'd love to visit again.",
       "We'll come back with our kids.",
       "Hope to see you again soon.",
-      "I will recommend you to my friends and come back.",
       "Next time we will stay longer.",
       "Can't wait to come back.",
       "We plan to return during harvest season.",
-      "I'll be back for sure."
+      "I'll be back for sure.",
+      "I will come back with my friends."
     ]
   }
 }

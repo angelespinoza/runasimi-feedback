@@ -117,10 +117,12 @@ export default function Detail({ id }: { id: string }) {
         <p>{f.textEs}</p>
       </section>
 
-      <details className="card">
-        <summary>{t('detail.en')}</summary>
-        <p lang="en">{f.transcriptEn}</p>
-      </details>
+      {f.lang !== 'es' && (
+        <details className="card">
+          <summary>{t('detail.en')}</summary>
+          <p lang="en">{f.transcriptEn}</p>
+        </details>
+      )}
 
       {/* Fail-safe: sin intención clara no se propone respuesta; Noor puede elegir una a mano. */}
       {!f.intent && <p className="muted">{t('detail.noReply')}</p>}

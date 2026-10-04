@@ -8,7 +8,7 @@ export type Visitor = {
   id: string;
   name?: string;
   phone?: string; // E.164, solo si consentMessages = true
-  language: 'en';
+  language: 'en' | 'es' | 'qu'; // idioma del consentimiento
   consentRecording: boolean;
   consentMessages: boolean;
   consentAt: string; // ISO
@@ -19,6 +19,7 @@ export type Scored<T> = { id: T; score: number };
 
 // Una oración de la reseña: su quechua se muestra solo si pasa el filtro de confianza;
 // si no, se muestra el español con el aviso "No estoy seguro".
+// `en` es la cláusula original (en castellano si la reseña es en castellano).
 export type Segment = { en: string; es: string; qu: string; quConfidence: number; showQu: boolean };
 
 export type Feedback = {
@@ -27,7 +28,8 @@ export type Feedback = {
   source: 'recording' | 'whatsapp_share';
   createdAt: string;
   audioBlob?: Blob; // se elimina tras procesar
-  transcriptEn: string;
+  lang?: 'en' | 'es'; // idioma hablado (ausente = inglés)
+  transcriptEn: string; // transcripción original, en el idioma `lang` (el nombre es histórico)
   textEs: string;
   textQu: string;
   quConfidence: number; // 0–1, promedio de las oraciones ponderado por longitud

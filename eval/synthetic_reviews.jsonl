@@ -58,3 +58,11 @@
 {"id": 57, "synthetic": true, "text": "Breakfast with fresh bread and coffee was lovely, how much is the coffee?", "topics": ["food"], "intent": "price"}
 {"id": 58, "synthetic": true, "text": "We had fun, the dog was cute.", "topics": [], "intent": null}
 {"id": 59, "synthetic": true, "text": "Amazing coffee, beautiful place, we'll come back!", "topics": ["coffee_tasting", "landscape"], "intent": "return"}
+{"id": 60, "synthetic": true, "text": "Everything was very good, the coffee is top quality, recommended.", "topics": ["coffee_tasting"], "intent": null}
+{"id": 61, "synthetic": true, "text": "Great farm. In the future I'd like you to have more flavors.", "topics": ["missing"], "intent": null}
+{"id": 62, "synthetic": true, "text": "Highly recommended, the coffee was really smooth.", "topics": ["coffee_tasting"], "intent": null}
+{"id": 63, "synthetic": true, "text": "It would be great if you also sold honey or cacao.", "topics": ["missing"], "intent": null}
+{"id": 64, "synthetic": true, "text": "I recommend this place to everyone.", "topics": [], "intent": null}
+{"id": 65, "synthetic": true, "text": "Lovely coffee but only one type, please add a lighter roast.", "topics": ["coffee_tasting", "missing"], "intent": null}
+{"id": 66, "synthetic": true, "text": "We will bring our friends next time.", "topics": [], "intent": "return"}
+{"id": 67, "synthetic": true, "text": "The food was fine but the coffee was the star.", "topics": ["food", "coffee_tasting"], "intent": null}

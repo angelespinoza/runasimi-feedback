@@ -72,7 +72,7 @@ export default function NewReview() {
       name: name.trim() || undefined,
       // El teléfono solo se guarda con el consentimiento de mensajes.
       phone: consentMessages && phone ? normalizePhone(phone) : undefined,
-      language: 'en',
+      language: vlang,
       consentRecording,
       consentMessages,
       consentAt: now,
@@ -84,6 +84,8 @@ export default function NewReview() {
       source: 'recording',
       createdAt: now,
       audioBlob,
+      // Whisper no tiene quechua: quien elige quechua o castellano graba en castellano.
+      lang: vlang === 'en' ? 'en' : 'es',
       transcriptEn: '',
       textEs: '',
       textQu: '',

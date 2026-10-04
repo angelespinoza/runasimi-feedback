@@ -46,7 +46,7 @@ async function handle(req: WorkerRequest): Promise<unknown> {
       await disposePipeline(req.key);
       return null;
     case 'asr':
-      return transcribe(req.audio);
+      return transcribe(req.audio, req.lang);
     case 'translate':
       return translate(req.text, req.src, req.tgt);
     case 'embed':
@@ -57,7 +57,7 @@ async function handle(req: WorkerRequest): Promise<unknown> {
       return q;
     }
     case 'process':
-      return processReview({ audio: req.audio, text: req.text }, (stage) => post({ id: req.id, type: 'stage', stage }));
+      return processReview({ audio: req.audio, text: req.text, lang: req.lang }, (stage) => post({ id: req.id, type: 'stage', stage }));
     case 'quReply':
       return translateReplyToQu(req.textEs);
   }

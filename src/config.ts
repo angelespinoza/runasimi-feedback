@@ -18,6 +18,9 @@ export const MODELS: Record<ModelKey, ModelSpec> = {
   embed: { id: 'Xenova/multilingual-e5-small', task: 'feature-extraction', dtype: 'q8', approxBytes: 135.4e6 },
 };
 
+// Idioma en que habla el visitante. Whisper no tiene quechua: un visitante que elige quechua graba en castellano.
+export type SpeechLang = 'en' | 'es';
+
 export const ASR_FALLBACK_ID = 'Xenova/whisper-tiny';
 
 export const LANG = {
