@@ -2,10 +2,27 @@ import type { Feedback } from '../../data/types';
 import { t } from '../../i18n';
 import type { Stage } from '../../worker/process';
 import { navigate } from '../router';
+import { art } from '../ui';
 
 export function intentLabel(f: Feedback): string {
   return f.intent ? t(`intent.${f.intent.id}`) : t('class.unclear');
 }
+
+// Icono de cada tema o intención (diseno/noor_ui_components/icons).
+const CLASS_ART: Record<string, string> = {
+  coffee_tasting: 'icon-coffee_cup',
+  landscape: 'icon-leaf',
+  guide: 'icon-user',
+  food: 'icon-food_cutlery',
+  missing: 'icon-warning',
+  buy_coffee: 'icon-coffee_sprig',
+  price: 'icon-chat_bubble',
+  booking: 'icon-calendar_booking',
+  location: 'icon-right_arrow',
+  return: 'icon-back_arrow',
+  unclear: 'icon-leaf',
+};
+export const classArt = (id: string) => art(CLASS_ART[id] ?? 'icon-leaf');
 
 export function FeedbackRow({ f, stage }: { f: Feedback; stage?: Stage }) {
   const date = new Date(f.createdAt).toLocaleString('es-PE', { dateStyle: 'medium', timeStyle: 'short' });
@@ -14,14 +31,16 @@ export function FeedbackRow({ f, stage }: { f: Feedback; stage?: Stage }) {
   else if (f.status === 'pending' || f.status === 'processing') summary = t('processing.title') + '…';
   else if (f.status === 'error') summary = t('detail.error');
   else summary = intentLabel(f);
+  const icon = f.intent?.id ?? f.topics[0]?.id ?? 'unclear';
 
   return (
     <li>
-      <button className="row-btn" onClick={() => navigate(`/detail/${f.id}`)}>
-        <strong>{summary}</strong>
-        <span className="muted small">
-          {date} · {f.source === 'recording' ? '🎙️' : '💬'}
-          {f.textEs && ` · ${f.textEs.slice(0, 70)}${f.textEs.length > 70 ? '…' : ''}`}
+      <button className="review-card" onClick={() => navigate(`/detail/${f.id}`)}>
+        <img className="avatar" src={classArt(icon)} alt="" aria-hidden />
+        <span className="body">
+          <strong>{summary}</strong>
+          <span className="meta">{date} · {f.source === 'recording' ? '🎙️' : '💬'}</span>
+          {f.textEs && <span className="text">{f.textEs}</span>}
         </span>
       </button>
     </li>

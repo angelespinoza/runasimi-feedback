@@ -19,7 +19,7 @@ export default defineConfig({
       registerType: 'autoUpdate',
       injectRegister: 'auto',
       injectManifest: {
-        globPatterns: ['**/*.{js,css,html,wasm,png,svg,wav}'],
+        globPatterns: ['**/*.{js,css,html,wasm,png,svg,wav,webp}'],
         maximumFileSizeToCacheInBytes: 40 * 1024 * 1024, // el WASM de onnxruntime pesa ~27 MB
       },
       manifest: {

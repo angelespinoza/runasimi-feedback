@@ -1,4 +1,5 @@
 import Bench from './app/Bench';
+import { useState } from 'react';
 import { useLang } from './i18n';
 import { unlockApp, useUnlocked } from './app/lock';
 import { usePath } from './app/router';
@@ -6,6 +7,7 @@ import Detail from './app/screens/Detail';
 import Home from './app/screens/Home';
 import Insights, { InsightEvidence } from './app/screens/Insights';
 import Lock from './app/screens/Lock';
+import Onboarding, { isOnboarded } from './app/screens/Onboarding';
 import NewReview from './app/screens/NewReview';
 import Received from './app/screens/Received';
 import Reply from './app/screens/Reply';
@@ -16,6 +18,8 @@ export default function App() {
   const unlocked = useUnlocked();
   // Al cambiar el idioma, toda la app se vuelve a pintar (sin perder lo escrito en formularios).
   useLang();
+  const [onboarded, setOnboarded] = useState(isOnboarded);
+  if (!onboarded) return <Onboarding onDone={() => setOnboarded(true)} />;
   if (!unlocked) return <Lock onUnlock={unlockApp} />;
 
   const detail = path.match(/^\/detail\/([\w-]+)$/);

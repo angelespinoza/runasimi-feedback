@@ -5,6 +5,7 @@ import { lockApp } from '../lock';
 import { navigate } from '../router';
 import { Screen, T } from '../ui';
 import Lock from './Lock';
+import { resetOnboarding } from './Onboarding';
 
 export default function Settings() {
   const [confirming, setConfirming] = useState(false);
@@ -18,6 +19,7 @@ export default function Settings() {
       <p className="hint">🔐 {t('settings.privacy')}</p>
       <button onClick={() => setChangingPin(true)}><T k="settings.changePin" /></button>
       <button onClick={() => { lockApp(); navigate('/', true); }}><T k="settings.lock" /></button>
+      <button onClick={() => { resetOnboarding(); location.replace('/'); }}><T k="settings.intro" /></button>
 
       {/* Teléfono perdido o compartido: borrado total con confirmación dentro de la app. */}
       {confirming ? (

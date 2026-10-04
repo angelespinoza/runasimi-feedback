@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { deleteAllData } from '../../data/db';
 import { checkPin, hasPin, setPin } from '../../data/pin';
 import { t } from '../../i18n';
-import { LangToggle, T } from '../ui';
+import { art, LangToggle, T } from '../ui';
 
 // PIN de 4 dígitos para abrir la app. La primera vez se crea; olvidarlo solo permite borrar todo.
 export default function Lock({ onUnlock, mode = 'auto' }: { onUnlock: () => void; mode?: 'auto' | 'change' }) {
@@ -48,7 +48,7 @@ export default function Lock({ onUnlock, mode = 'auto' }: { onUnlock: () => void
   return (
     <main className="screen lock">
       <div className="lock-lang"><LangToggle /></div>
-      <span className="icon big-icon" aria-hidden>🔒</span>
+      <img className="lock-sprig" src={art('icon-coffee_sprig')} alt="" aria-hidden />
       <T k={title} as="h1" />
       <div className="dots" aria-label={`${pin.length} de 4`}>
         {[0, 1, 2, 3].map((i) => <span key={i} className={i < pin.length ? 'dot on' : 'dot'} />)}

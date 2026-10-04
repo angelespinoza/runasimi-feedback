@@ -5,7 +5,7 @@ import type { Feedback, Visitor } from '../../data/types';
 import { t, visitorText, type VisitorLang } from '../../i18n';
 import { processFeedback } from '../processing';
 import { navigate } from '../router';
-import { Screen, T } from '../ui';
+import { art, Icon, Screen, T } from '../ui';
 
 const normalizePhone = (raw: string) => raw.replace(/[\s()-]/g, '');
 const isE164 = (p: string) => /^\+[1-9]\d{7,14}$/.test(p);
@@ -102,20 +102,20 @@ export default function NewReview() {
   }
 
   return (
-    <Screen title="consent.title">
-      <p className="hint">👉 {t('consent.showVisitor')}</p>
-      <section>
-        <T k="consent.visitorLang" as="h2" />
-        <div className="segmented" role="radiogroup">
-          {(['en', 'es', 'qu'] as VisitorLang[]).map((l) => (
-            <button key={l} role="radio" aria-checked={vlang === l} className={vlang === l ? 'on' : ''}
-              disabled={recording} onClick={() => setVlang(l)}>
-              {t(`reply.lang.${l}`)}
-            </button>
-          ))}
-        </div>
-      </section>
-      <section className="card" lang={vlang === 'qu' ? 'quy' : vlang}>
+    <Screen title="consent.title" landscape={false}>
+      <div className="segmented" role="radiogroup" aria-label={t('consent.visitorLang')}>
+        {(['en', 'es', 'qu'] as VisitorLang[]).map((l) => (
+          <button key={l} role="radio" aria-checked={vlang === l} className={vlang === l ? 'on' : ''}
+            disabled={recording} onClick={() => setVlang(l)}>
+            {t(`reply.lang.${l}`)}
+          </button>
+        ))}
+      </div>
+      <img className="consent-hero" src={art('consent-hero')} alt="" aria-hidden />
+
+      <section className="card consent-card" lang={vlang === 'qu' ? 'quy' : vlang}>
+        <h2>{t('consent.showVisitor')}</h2>
+        <p className="sub">{t('consent.askConsent')}</p>
         <label className="check">
           <input type="checkbox" checked={consentRecording} disabled={recording}
             onChange={(e) => setConsentRecording(e.target.checked)} />
@@ -128,7 +128,10 @@ export default function NewReview() {
         </label>
         <label className="field">
           <span>{visitorText('consent.name', vlang)}</span>
-          <input value={name} onChange={(e) => setName(e.target.value)} disabled={recording} autoComplete="off" />
+          <span className="with-icon">
+            <Icon name="user" />
+            <input value={name} onChange={(e) => setName(e.target.value)} disabled={recording} autoComplete="off" />
+          </span>
         </label>
         {consentMessages && (
           <label className="field">
@@ -141,6 +144,8 @@ export default function NewReview() {
       </section>
 
       <section className="record">
+        <img className="deco foliage l" src={art('foliage-left')} alt="" aria-hidden />
+        <img className="deco foliage r" src={art('foliage-right')} alt="" aria-hidden />
         {recording ? (
           <button className="rec-btn on" onClick={stop}>
             <span className="rec-time">{seconds}s / {MAX_RECORDING_SECONDS}s</span>
@@ -148,11 +153,12 @@ export default function NewReview() {
           </button>
         ) : (
           <button className="rec-btn" onClick={() => void start()} disabled={!consentRecording || !phoneOk}>
-            <span className="icon" aria-hidden>🎙️</span>
+            <Icon name="mic" />
             <T k="record.start" />
           </button>
         )}
-        <p className="muted small">
+        <p className="muted small info-line">
+          <Icon name="info" />
           {consentRecording ? t('record.hint') : t('consent.needRecording')}
         </p>
         {error && <p className="bad">{error}</p>}

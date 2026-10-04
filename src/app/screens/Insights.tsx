@@ -4,8 +4,8 @@ import { computeInsights, type Insight } from '../../data/insights';
 import type { Feedback } from '../../data/types';
 import { t, type Key } from '../../i18n';
 import { navigate } from '../router';
-import { Screen, T } from '../ui';
-import { FeedbackRow } from './FeedbackRow';
+import { art, BackButton, Landscape, Screen, T } from '../ui';
+import { classArt, FeedbackRow } from './FeedbackRow';
 import { MoreIdeas } from './MoreIdeas';
 
 const labelKey = (i: Insight): Key => (i.kind === 'unclear' ? 'class.unclear' : (`${i.kind}.${i.id}` as Key));
@@ -14,17 +14,20 @@ function InsightRow({ insight, total }: { insight: Insight; total: number }) {
   return (
     <li>
       <button className="insight" onClick={() => navigate(`/insights/${insight.kind}/${insight.id}`)}>
-        <div className="insight-head">
-          <T k={labelKey(insight)} />
-          <strong className="count">
-            {t('insights.count', { n: insight.n, N: total })}
-          </strong>
-        </div>
-        <div className="bar-track" aria-hidden>
-          <div className="bar-fill" style={{ width: `${(insight.n / total) * 100}%` }} />
-        </div>
-        {/* Insights con evidencia: con n = 1 se avisa que el dato es insuficiente. */}
-        {insight.n === 1 && <span className="warn small">⚠️ {t('insights.onlyOne')}</span>}
+        <span className="ico"><img src={classArt(insight.id)} alt="" aria-hidden /></span>
+        <span className="insight-main">
+          <span className="insight-head">
+            <T k={labelKey(insight)} />
+            <strong className="count">
+              {t('insights.count', { n: insight.n, N: total })}
+            </strong>
+          </span>
+          <span className="bar-track" aria-hidden>
+            <span className="bar-fill" style={{ display: 'block', width: `${(insight.n / total) * 100}%` }} />
+          </span>
+          {/* Insights con evidencia: con n = 1 se avisa que el dato es insuficiente. */}
+          {insight.n === 1 && <span className="warn small">⚠️ {t('insights.onlyOne')}</span>}
+        </span>
       </button>
     </li>
   );
@@ -37,35 +40,47 @@ export default function Insights() {
   const { total, topics, intents, unclear } = computeInsights(items);
 
   return (
-    <Screen title="insights.title">
+    <main className="screen">
+      <div className="insights-top">
+        <img className="deco hills" src={art('insights-hills')} alt="" aria-hidden />
+        <img className="deco branch" src={art('insights-branch')} alt="" aria-hidden />
+        <header className="bar">
+          <BackButton to="/" />
+          <T k="insights.title" as="h1" />
+        </header>
+        {total > 0 && <p className="muted">{t('insights.visitors', { N: total })}</p>}
+      </div>
       {total === 0 ? (
         <p className="muted">{t('insights.empty')}</p>
       ) : (
         <>
-          <p className="muted">
-            {t('insights.visitors', { N: total })}
-          </p>
-          {topics.length > 0 && (
-            <section>
-              <T k="insights.topics" as="h2" />
-              <ul className="list">{topics.map((i) => <InsightRow key={i.id} insight={i} total={total} />)}</ul>
-            </section>
-          )}
-          {intents.length > 0 && (
-            <section>
-              <T k="insights.intents" as="h2" />
-              <ul className="list">{intents.map((i) => <InsightRow key={i.id} insight={i} total={total} />)}</ul>
-            </section>
-          )}
-          {unclear.n > 0 && (
-            <section>
-              <ul className="list"><InsightRow insight={unclear} total={total} /></ul>
-            </section>
-          )}
+          <div className="insights-panel">
+            {topics.length > 0 && (
+              <section>
+                <T k="insights.topics" as="h2" />
+                <ul className="list">{topics.map((i) => <InsightRow key={i.id} insight={i} total={total} />)}</ul>
+              </section>
+            )}
+            {intents.length > 0 && (
+              <>
+                {topics.length > 0 && <hr />}
+                <section>
+                  <T k="insights.intents" as="h2" />
+                  <ul className="list">{intents.map((i) => <InsightRow key={i.id} insight={i} total={total} />)}</ul>
+                </section>
+              </>
+            )}
+            {unclear.n > 0 && (
+              <section>
+                <ul className="list"><InsightRow insight={unclear} total={total} /></ul>
+              </section>
+            )}
+          </div>
           <MoreIdeas items={items} />
         </>
       )}
-    </Screen>
+      <Landscape />
+    </main>
   );
 }
 

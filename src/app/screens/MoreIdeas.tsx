@@ -5,6 +5,7 @@ import type { QuReply } from '../../worker/protocol';
 import { generateIdeas, parseRecommendations, type QwenResult, type Recommendation } from '../../worker/qwenClient';
 import { ensureModels } from '../processing';
 import { navigate } from '../router';
+import { art, Icon } from '../ui';
 
 // EXPERIMENTAL: "Más ideas" con Qwen3-0.6B. En eval/qwen_recs_test.mjs copiaba reseñas e inventaba
 // detalles que los filtros no detectaban; está aquí solo para probarlo. Textos fijos en castellano.
@@ -77,12 +78,14 @@ export function MoreIdeas({ items }: { items: Feedback[] }) {
   const busy = phase === 'loading' || phase === 'generating' || phase === 'translating';
 
   return (
-    <section className="card">
-      <h2>Más ideas</h2>
+    <section className="card ideas">
+      <img className="deco leaf" src={art('leaf-plain')} alt="" aria-hidden />
+      <h2><Icon name="sparkles" />Más ideas</h2>
       {reviews.length === 0 ? (
         <p className="muted">Todavía no hay reseñas procesadas.</p>
       ) : (
         <button className="primary" disabled={busy} onClick={() => void start()}>
+          <Icon name="sparkles" />
           {busy ? 'Pensando…' : run ? 'Pedir otras ideas' : 'Pedir ideas'}
         </button>
       )}
