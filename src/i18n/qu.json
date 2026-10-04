@@ -152,5 +152,7 @@
   "setup.waiting": "Mana internet kanchu. Señal kutimuptin kikillanmanta uraykachinqa; uraykachisqaqa manam chinkanchu.",
   "setup.resume": "Uraykachiyta qatiy",
   "ui.lang.en": "English",
-  "ob.lang.en.sub": "App inglés simipi"
+  "ob.lang.en.sub": "App inglés simipi",
+  "install.button": "App-ta churay",
+  "install.sub": "Telefonoykiq qallariyninmanta kichay, huk app hina."
 }

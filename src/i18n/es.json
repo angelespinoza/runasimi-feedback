@@ -151,5 +151,7 @@
   "setup.waiting": "Sin conexión. La descarga sigue sola cuando vuelva la señal; no se pierde lo descargado.",
   "setup.resume": "Continuar descarga",
   "ui.lang.en": "English",
-  "ob.lang.en.sub": "La app en inglés"
+  "ob.lang.en.sub": "La app en inglés",
+  "install.button": "Instalar app",
+  "install.sub": "Ábrela desde tu pantalla de inicio, como cualquier app."
 }

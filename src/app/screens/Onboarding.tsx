@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { setLang, t, UI_LANGS, useLang } from '../../i18n';
+import { promptInstall, useCanInstall } from '../install';
 import { art, Icon, Landscape } from '../ui';
 
 // Walkthrough del primer inicio: idioma, qué hace la app y que funciona sin internet.
@@ -27,6 +28,7 @@ const PAGES = 3;
 export default function Onboarding({ onDone }: { onDone: () => void }) {
   const lang = useLang();
   const [page, setPage] = useState(0);
+  const canInstall = useCanInstall();
 
   const finish = () => {
     try {
@@ -109,6 +111,11 @@ export default function Onboarding({ onDone }: { onDone: () => void }) {
               <span>{t('ob.private.sub')}</span>
             </div>
           </div>
+          {canInstall && (
+            <button className="install-card" onClick={() => void promptInstall()}>
+              📲 <span><strong>{t('install.button')}</strong><small>{t('install.sub')}</small></span>
+            </button>
+          )}
         </>
       )}
 

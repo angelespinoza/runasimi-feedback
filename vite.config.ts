@@ -30,8 +30,8 @@ export default defineConfig({
         start_url: '/',
         scope: '/',
         display: 'standalone',
-        background_color: '#fbfaf7',
-        theme_color: '#6b3e1f',
+        background_color: '#1b1511',
+        theme_color: '#1b1511',
         // Web Share Target (solo Chrome Android con la PWA instalada): notas de voz y texto de WhatsApp.
         share_target: {
           action: '/share',

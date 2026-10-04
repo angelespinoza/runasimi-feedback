@@ -151,5 +151,7 @@
   "setup.resume": "Continue download",
   "settings.intro": "View the introduction",
   "ui.lang.en": "English",
-  "ob.lang.en.sub": "The app in English"
+  "ob.lang.en.sub": "The app in English",
+  "install.button": "Install app",
+  "install.sub": "Open it from your home screen, like any app."
 }

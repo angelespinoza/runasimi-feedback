@@ -280,3 +280,10 @@ details summary { cursor: pointer; color: var(--muted); }
 .segments .conf span { line-height: 16px; }
 .preview-en .primary { margin: 6px 0; }
 .warn ul { margin: 6px 0 0; padding-left: 18px; }
+
+/* ── Instalar como app ──────────────────────── */
+.primary.install { margin: 0 0 16px; background: var(--card-2); color: var(--accent); border: 1px solid var(--accent); box-shadow: none; }
+.install-card { width: 100%; display: flex; align-items: center; gap: 14px; text-align: left; padding: 16px 18px; border-radius: var(--radius);
+  border: 1px solid var(--accent); background: color-mix(in srgb, var(--accent) 12%, var(--card)); font-size: 1.6rem; }
+.install-card span { display: flex; flex-direction: column; font-size: 1rem; }
+.install-card small { color: var(--muted); font-size: 0.88rem; }

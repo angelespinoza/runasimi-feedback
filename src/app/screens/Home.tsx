@@ -4,6 +4,7 @@ import type { Feedback } from '../../data/types';
 import { t, useLang } from '../../i18n';
 import { mb } from '../modelCache';
 import { downloadedBytes } from '../download';
+import { promptInstall, useCanInstall } from '../install';
 import { ensureModels, modelsCached, useProcessing } from '../processing';
 import { navigate } from '../router';
 import { art, Icon, Landscape, LangToggle, T } from '../ui';
@@ -16,6 +17,7 @@ export default function Home() {
   const [items, setItems] = useState<Feedback[]>([]);
   const [error, setError] = useState<string | null>(null);
   const [showAll, setShowAll] = useState(false);
+  const canInstall = useCanInstall();
 
   const [partial, setPartial] = useState(0);
   useEffect(() => {
@@ -79,6 +81,12 @@ export default function Home() {
           </div>
           <img src={art('offline-landscape')} alt="" aria-hidden />
         </div>
+      )}
+
+      {canInstall && (
+        <button className="primary install" onClick={() => void promptInstall()}>
+          📲 {t('install.button')}
+        </button>
       )}
 
       <nav className="tiles">
