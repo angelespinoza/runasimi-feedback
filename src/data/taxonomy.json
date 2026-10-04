@@ -1,0 +1,128 @@
+{
+  "topics": {
+    "coffee_tasting": [
+      "The coffee tasting was amazing.",
+      "We loved tasting the different coffees.",
+      "The coffee testing session was great.",
+      "The cupping was the highlight of the tour.",
+      "The coffee tasted incredible, so fresh.",
+      "Learning how to taste coffee was fascinating.",
+      "Best cup of coffee I have ever had.",
+      "Watching them roast the beans was fun.",
+      "The coffee was a bit too bitter for me.",
+      "I enjoyed learning the process from cherry to cup.",
+      "The fresh roasted coffee smelled wonderful."
+    ],
+    "landscape": [
+      "The view of the valley was beautiful.",
+      "The landscape was breathtaking.",
+      "The mountains around the farm are stunning.",
+      "We took so many photos of the scenery.",
+      "Walking through the coffee plants was lovely.",
+      "The sunrise over the hills was unforgettable.",
+      "The nature here is so peaceful.",
+      "The trail had amazing views.",
+      "The river and the green fields were gorgeous.",
+      "The farm is in a beautiful location."
+    ],
+    "guide": [
+      "Our guide was very friendly and knowledgeable.",
+      "The guide explained every step clearly.",
+      "Noor was a wonderful host.",
+      "The host made us feel at home.",
+      "Our guide answered all our questions.",
+      "The guide's stories about the farm were great.",
+      "It was hard to understand the guide sometimes.",
+      "The guide was patient and kind.",
+      "She shared so much about her family's history.",
+      "The explanation of coffee growing was excellent."
+    ],
+    "food": [
+      "The lunch was delicious.",
+      "We loved the traditional food.",
+      "The homemade bread was amazing.",
+      "The meal they cooked for us was fantastic.",
+      "The snacks were tasty.",
+      "The soup at lunch was the best part.",
+      "I wish there were more vegetarian options.",
+      "The fruit from the farm was so fresh.",
+      "Breakfast was simple but very good.",
+      "The local dishes were a nice surprise."
+    ],
+    "missing": [
+      "I wish there was a bathroom on the trail.",
+      "There was no place to buy water.",
+      "It would be nice to have a map.",
+      "We needed more shade during the walk.",
+      "There was no sign to find the entrance.",
+      "Something was missing, maybe more time to rest.",
+      "The tour was too short.",
+      "I couldn't pay by card.",
+      "There was no information in English.",
+      "The road to get there was very difficult.",
+      "We were cold, they should warn about the weather."
+    ]
+  },
+  "intents": {
+    "buy_coffee": [
+      "Can I buy roasted beans?",
+      "I would like to buy some coffee to take home.",
+      "Do you sell bags of coffee?",
+      "Where can I buy your coffee?",
+      "I want to order a kilo of coffee.",
+      "Can you ship coffee to my country?",
+      "Can I purchase ground coffee?",
+      "I'd love to bring some of your coffee back home.",
+      "Do you have coffee for sale?",
+      "Can I get two bags of beans?"
+    ],
+    "price": [
+      "How much does a kilo cost?",
+      "What is the price of the tour?",
+      "How much is a bag of coffee?",
+      "How much do you charge?",
+      "What does it cost?",
+      "Is it expensive?",
+      "Can you tell me the prices?",
+      "How much for half a kilo?",
+      "What's the price per person?",
+      "Do you have a price list?"
+    ],
+    "booking": [
+      "I want to book a tour for my friends.",
+      "Can I make a reservation for next week?",
+      "Is there availability on Saturday?",
+      "How do I book another visit?",
+      "Can we schedule a tour for a group of ten?",
+      "I'd like to reserve a spot for my family.",
+      "Do you have space next month?",
+      "Can I book the coffee tasting for two people?",
+      "How can my friends sign up for the tour?",
+      "Are you open for visits in December?"
+    ],
+    "location": [
+      "How do I get to the farm?",
+      "Where exactly is the farm?",
+      "Can you send me the location?",
+      "What's the best way to get there from the city?",
+      "Is there a bus to the farm?",
+      "Can I drive there?",
+      "How far is it from town?",
+      "Can you share the address?",
+      "Where should we meet?",
+      "How long does it take to get there?"
+    ],
+    "return": [
+      "I want to come back next year.",
+      "We will definitely return.",
+      "I'd love to visit again.",
+      "We'll come back with our kids.",
+      "Hope to see you again soon.",
+      "I will recommend you to my friends and come back.",
+      "Next time we will stay longer.",
+      "Can't wait to come back.",
+      "We plan to return during harvest season.",
+      "I'll be back for sure."
+    ]
+  }
+}

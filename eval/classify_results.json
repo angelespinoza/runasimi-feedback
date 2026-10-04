@@ -1,0 +1,663 @@
+{
+  "dataset": "eval/synthetic_reviews.jsonl (60 reseñas SINTÉTICAS)",
+  "model": "Xenova/multilingual-e5-small (ONNX q8)",
+  "current_config": {
+    "threshold": 0.82,
+    "margin": 0.03,
+    "intent_accuracy": 0.85,
+    "topic_f1": 0.596,
+    "strict_accuracy": 0.583,
+    "unclear_rate": 0.433,
+    "errors": 25
+  },
+  "best": {
+    "threshold": 0.82,
+    "margin": 0,
+    "intent_accuracy": 0.933,
+    "topic_f1": 0.789,
+    "strict_accuracy": 0.733,
+    "unclear_rate": 0.117
+  },
+  "best_errors": [
+    {
+      "text": "There was no toilet anywhere near the plantation.",
+      "gold": {
+        "topics": [
+          "missing"
+        ],
+        "intent": null
+      },
+      "pred": {
+        "topics": [],
+        "intent": null
+      }
+    },
+    {
+      "text": "Honestly the coffee was too strong for my taste, but the hills were gorgeous.",
+      "gold": {
+        "topics": [
+          "coffee_tasting",
+          "landscape"
+        ],
+        "intent": null
+      },
+      "pred": {
+        "topics": [
+          "coffee_tasting"
+        ],
+        "intent": null
+      }
+    },
+    {
+      "text": "Thank you so much!",
+      "gold": {
+        "topics": [],
+        "intent": null
+      },
+      "pred": {
+        "topics": [],
+        "intent": "location"
+      }
+    },
+    {
+      "text": "The guide told us about three generations of coffee growers in her family.",
+      "gold": {
+        "topics": [
+          "guide"
+        ],
+        "intent": null
+      },
+      "pred": {
+        "topics": [],
+        "intent": null
+      }
+    },
+    {
+      "text": "Nice day.",
+      "gold": {
+        "topics": [],
+        "intent": null
+      },
+      "pred": {
+        "topics": [
+          "food"
+        ],
+        "intent": null
+      }
+    },
+    {
+      "text": "I wanted to pay with a credit card but it was cash only.",
+      "gold": {
+        "topics": [
+          "missing"
+        ],
+        "intent": null
+      },
+      "pred": {
+        "topics": [],
+        "intent": null
+      }
+    },
+    {
+      "text": "We'd like to book again for our anniversary.",
+      "gold": {
+        "topics": [],
+        "intent": "booking"
+      },
+      "pred": {
+        "topics": [],
+        "intent": "return"
+      }
+    },
+    {
+      "text": "Watching the whole process from cherry to cup was eye opening, and the guide knew so much.",
+      "gold": {
+        "topics": [
+          "coffee_tasting",
+          "guide"
+        ],
+        "intent": null
+      },
+      "pred": {
+        "topics": [
+          "coffee_tasting"
+        ],
+        "intent": null
+      }
+    },
+    {
+      "text": "The soup was delicious and the view from the dining table was amazing.",
+      "gold": {
+        "topics": [
+          "food",
+          "landscape"
+        ],
+        "intent": null
+      },
+      "pred": {
+        "topics": [
+          "food"
+        ],
+        "intent": null
+      }
+    },
+    {
+      "text": "Is a kilo of the roasted coffee expensive?",
+      "gold": {
+        "topics": [],
+        "intent": "price"
+      },
+      "pred": {
+        "topics": [
+          "coffee_tasting"
+        ],
+        "intent": "price"
+      }
+    },
+    {
+      "text": "I can't stop thinking about that coffee.",
+      "gold": {
+        "topics": [
+          "coffee_tasting"
+        ],
+        "intent": null
+      },
+      "pred": {
+        "topics": [
+          "coffee_tasting"
+        ],
+        "intent": "buy_coffee"
+      }
+    },
+    {
+      "text": "The homemade cake with coffee was a perfect ending.",
+      "gold": {
+        "topics": [
+          "food"
+        ],
+        "intent": null
+      },
+      "pred": {
+        "topics": [
+          "coffee_tasting"
+        ],
+        "intent": null
+      }
+    },
+    {
+      "text": "She showed us how to pick only the red cherries, she is a great teacher.",
+      "gold": {
+        "topics": [
+          "guide"
+        ],
+        "intent": null
+      },
+      "pred": {
+        "topics": [],
+        "intent": null
+      }
+    },
+    {
+      "text": "The trout they served was fresh and tasty.",
+      "gold": {
+        "topics": [
+          "food"
+        ],
+        "intent": null
+      },
+      "pred": {
+        "topics": [],
+        "intent": null
+      }
+    },
+    {
+      "text": "Breakfast with fresh bread and coffee was lovely, how much is the coffee?",
+      "gold": {
+        "topics": [
+          "food"
+        ],
+        "intent": "price"
+      },
+      "pred": {
+        "topics": [
+          "coffee_tasting"
+        ],
+        "intent": "price"
+      }
+    },
+    {
+      "text": "Amazing coffee, beautiful place, we'll come back!",
+      "gold": {
+        "topics": [
+          "coffee_tasting",
+          "landscape"
+        ],
+        "intent": "return"
+      },
+      "pred": {
+        "topics": [
+          "coffee_tasting"
+        ],
+        "intent": "buy_coffee"
+      }
+    }
+  ],
+  "sweep": [
+    {
+      "threshold": 0.78,
+      "margin": 0,
+      "intent_accuracy": 0.633,
+      "topic_f1": 0.696,
+      "strict_accuracy": 0.35,
+      "unclear_rate": 0
+    },
+    {
+      "threshold": 0.78,
+      "margin": 0.01,
+      "intent_accuracy": 0.8,
+      "topic_f1": 0.7,
+      "strict_accuracy": 0.533,
+      "unclear_rate": 0.083
+    },
+    {
+      "threshold": 0.78,
+      "margin": 0.02,
+      "intent_accuracy": 0.833,
+      "topic_f1": 0.735,
+      "strict_accuracy": 0.667,
+      "unclear_rate": 0.2
+    },
+    {
+      "threshold": 0.78,
+      "margin": 0.03,
+      "intent_accuracy": 0.783,
+      "topic_f1": 0.633,
+      "strict_accuracy": 0.583,
+      "unclear_rate": 0.35
+    },
+    {
+      "threshold": 0.79,
+      "margin": 0,
+      "intent_accuracy": 0.767,
+      "topic_f1": 0.736,
+      "strict_accuracy": 0.517,
+      "unclear_rate": 0
+    },
+    {
+      "threshold": 0.79,
+      "margin": 0.01,
+      "intent_accuracy": 0.833,
+      "topic_f1": 0.709,
+      "strict_accuracy": 0.583,
+      "unclear_rate": 0.1
+    },
+    {
+      "threshold": 0.79,
+      "margin": 0.02,
+      "intent_accuracy": 0.867,
+      "topic_f1": 0.746,
+      "strict_accuracy": 0.717,
+      "unclear_rate": 0.217
+    },
+    {
+      "threshold": 0.79,
+      "margin": 0.03,
+      "intent_accuracy": 0.8,
+      "topic_f1": 0.633,
+      "strict_accuracy": 0.6,
+      "unclear_rate": 0.35
+    },
+    {
+      "threshold": 0.8,
+      "margin": 0,
+      "intent_accuracy": 0.783,
+      "topic_f1": 0.762,
+      "strict_accuracy": 0.583,
+      "unclear_rate": 0.017
+    },
+    {
+      "threshold": 0.8,
+      "margin": 0.01,
+      "intent_accuracy": 0.85,
+      "topic_f1": 0.718,
+      "strict_accuracy": 0.617,
+      "unclear_rate": 0.1
+    },
+    {
+      "threshold": 0.8,
+      "margin": 0.02,
+      "intent_accuracy": 0.867,
+      "topic_f1": 0.746,
+      "strict_accuracy": 0.717,
+      "unclear_rate": 0.217
+    },
+    {
+      "threshold": 0.8,
+      "margin": 0.03,
+      "intent_accuracy": 0.8,
+      "topic_f1": 0.633,
+      "strict_accuracy": 0.6,
+      "unclear_rate": 0.35
+    },
+    {
+      "threshold": 0.81,
+      "margin": 0,
+      "intent_accuracy": 0.883,
+      "topic_f1": 0.8,
+      "strict_accuracy": 0.7,
+      "unclear_rate": 0.017
+    },
+    {
+      "threshold": 0.81,
+      "margin": 0.01,
+      "intent_accuracy": 0.917,
+      "topic_f1": 0.747,
+      "strict_accuracy": 0.683,
+      "unclear_rate": 0.117
+    },
+    {
+      "threshold": 0.81,
+      "margin": 0.02,
+      "intent_accuracy": 0.9,
+      "topic_f1": 0.746,
+      "strict_accuracy": 0.717,
+      "unclear_rate": 0.25
+    },
+    {
+      "threshold": 0.81,
+      "margin": 0.03,
+      "intent_accuracy": 0.833,
+      "topic_f1": 0.633,
+      "strict_accuracy": 0.6,
+      "unclear_rate": 0.383
+    },
+    {
+      "threshold": 0.82,
+      "margin": 0,
+      "intent_accuracy": 0.933,
+      "topic_f1": 0.789,
+      "strict_accuracy": 0.733,
+      "unclear_rate": 0.117
+    },
+    {
+      "threshold": 0.82,
+      "margin": 0.01,
+      "intent_accuracy": 0.95,
+      "topic_f1": 0.754,
+      "strict_accuracy": 0.733,
+      "unclear_rate": 0.183
+    },
+    {
+      "threshold": 0.82,
+      "margin": 0.02,
+      "intent_accuracy": 0.917,
+      "topic_f1": 0.719,
+      "strict_accuracy": 0.717,
+      "unclear_rate": 0.283
+    },
+    {
+      "threshold": 0.82,
+      "margin": 0.03,
+      "intent_accuracy": 0.85,
+      "topic_f1": 0.596,
+      "strict_accuracy": 0.583,
+      "unclear_rate": 0.433
+    },
+    {
+      "threshold": 0.83,
+      "margin": 0,
+      "intent_accuracy": 0.933,
+      "topic_f1": 0.771,
+      "strict_accuracy": 0.717,
+      "unclear_rate": 0.133
+    },
+    {
+      "threshold": 0.83,
+      "margin": 0.01,
+      "intent_accuracy": 0.933,
+      "topic_f1": 0.754,
+      "strict_accuracy": 0.717,
+      "unclear_rate": 0.183
+    },
+    {
+      "threshold": 0.83,
+      "margin": 0.02,
+      "intent_accuracy": 0.9,
+      "topic_f1": 0.719,
+      "strict_accuracy": 0.7,
+      "unclear_rate": 0.283
+    },
+    {
+      "threshold": 0.83,
+      "margin": 0.03,
+      "intent_accuracy": 0.833,
+      "topic_f1": 0.596,
+      "strict_accuracy": 0.567,
+      "unclear_rate": 0.433
+    },
+    {
+      "threshold": 0.84,
+      "margin": 0,
+      "intent_accuracy": 0.917,
+      "topic_f1": 0.719,
+      "strict_accuracy": 0.667,
+      "unclear_rate": 0.25
+    },
+    {
+      "threshold": 0.84,
+      "margin": 0.01,
+      "intent_accuracy": 0.9,
+      "topic_f1": 0.698,
+      "strict_accuracy": 0.65,
+      "unclear_rate": 0.283
+    },
+    {
+      "threshold": 0.84,
+      "margin": 0.02,
+      "intent_accuracy": 0.867,
+      "topic_f1": 0.644,
+      "strict_accuracy": 0.617,
+      "unclear_rate": 0.4
+    },
+    {
+      "threshold": 0.84,
+      "margin": 0.03,
+      "intent_accuracy": 0.8,
+      "topic_f1": 0.556,
+      "strict_accuracy": 0.5,
+      "unclear_rate": 0.517
+    },
+    {
+      "threshold": 0.85,
+      "margin": 0,
+      "intent_accuracy": 0.867,
+      "topic_f1": 0.71,
+      "strict_accuracy": 0.617,
+      "unclear_rate": 0.35
+    },
+    {
+      "threshold": 0.85,
+      "margin": 0.01,
+      "intent_accuracy": 0.85,
+      "topic_f1": 0.689,
+      "strict_accuracy": 0.6,
+      "unclear_rate": 0.383
+    },
+    {
+      "threshold": 0.85,
+      "margin": 0.02,
+      "intent_accuracy": 0.833,
+      "topic_f1": 0.621,
+      "strict_accuracy": 0.567,
+      "unclear_rate": 0.45
+    },
+    {
+      "threshold": 0.85,
+      "margin": 0.03,
+      "intent_accuracy": 0.767,
+      "topic_f1": 0.528,
+      "strict_accuracy": 0.45,
+      "unclear_rate": 0.567
+    },
+    {
+      "threshold": 0.86,
+      "margin": 0,
+      "intent_accuracy": 0.833,
+      "topic_f1": 0.462,
+      "strict_accuracy": 0.45,
+      "unclear_rate": 0.517
+    },
+    {
+      "threshold": 0.86,
+      "margin": 0.01,
+      "intent_accuracy": 0.817,
+      "topic_f1": 0.431,
+      "strict_accuracy": 0.433,
+      "unclear_rate": 0.55
+    },
+    {
+      "threshold": 0.86,
+      "margin": 0.02,
+      "intent_accuracy": 0.8,
+      "topic_f1": 0.4,
+      "strict_accuracy": 0.417,
+      "unclear_rate": 0.583
+    },
+    {
+      "threshold": 0.86,
+      "margin": 0.03,
+      "intent_accuracy": 0.75,
+      "topic_f1": 0.375,
+      "strict_accuracy": 0.367,
+      "unclear_rate": 0.65
+    },
+    {
+      "threshold": 0.87,
+      "margin": 0,
+      "intent_accuracy": 0.75,
+      "topic_f1": 0.304,
+      "strict_accuracy": 0.317,
+      "unclear_rate": 0.667
+    },
+    {
+      "threshold": 0.87,
+      "margin": 0.01,
+      "intent_accuracy": 0.733,
+      "topic_f1": 0.267,
+      "strict_accuracy": 0.3,
+      "unclear_rate": 0.7
+    },
+    {
+      "threshold": 0.87,
+      "margin": 0.02,
+      "intent_accuracy": 0.733,
+      "topic_f1": 0.267,
+      "strict_accuracy": 0.3,
+      "unclear_rate": 0.7
+    },
+    {
+      "threshold": 0.87,
+      "margin": 0.03,
+      "intent_accuracy": 0.683,
+      "topic_f1": 0.227,
+      "strict_accuracy": 0.25,
+      "unclear_rate": 0.767
+    },
+    {
+      "threshold": 0.88,
+      "margin": 0,
+      "intent_accuracy": 0.75,
+      "topic_f1": 0.186,
+      "strict_accuracy": 0.283,
+      "unclear_rate": 0.717
+    },
+    {
+      "threshold": 0.88,
+      "margin": 0.01,
+      "intent_accuracy": 0.733,
+      "topic_f1": 0.143,
+      "strict_accuracy": 0.267,
+      "unclear_rate": 0.75
+    },
+    {
+      "threshold": 0.88,
+      "margin": 0.02,
+      "intent_accuracy": 0.733,
+      "topic_f1": 0.143,
+      "strict_accuracy": 0.267,
+      "unclear_rate": 0.75
+    },
+    {
+      "threshold": 0.88,
+      "margin": 0.03,
+      "intent_accuracy": 0.683,
+      "topic_f1": 0.143,
+      "strict_accuracy": 0.233,
+      "unclear_rate": 0.8
+    },
+    {
+      "threshold": 0.89,
+      "margin": 0,
+      "intent_accuracy": 0.683,
+      "topic_f1": 0,
+      "strict_accuracy": 0.183,
+      "unclear_rate": 0.85
+    },
+    {
+      "threshold": 0.89,
+      "margin": 0.01,
+      "intent_accuracy": 0.683,
+      "topic_f1": 0,
+      "strict_accuracy": 0.183,
+      "unclear_rate": 0.85
+    },
+    {
+      "threshold": 0.89,
+      "margin": 0.02,
+      "intent_accuracy": 0.683,
+      "topic_f1": 0,
+      "strict_accuracy": 0.183,
+      "unclear_rate": 0.85
+    },
+    {
+      "threshold": 0.89,
+      "margin": 0.03,
+      "intent_accuracy": 0.65,
+      "topic_f1": 0,
+      "strict_accuracy": 0.15,
+      "unclear_rate": 0.883
+    },
+    {
+      "threshold": 0.9,
+      "margin": 0,
+      "intent_accuracy": 0.633,
+      "topic_f1": 0,
+      "strict_accuracy": 0.133,
+      "unclear_rate": 0.9
+    },
+    {
+      "threshold": 0.9,
+      "margin": 0.01,
+      "intent_accuracy": 0.633,
+      "topic_f1": 0,
+      "strict_accuracy": 0.133,
+      "unclear_rate": 0.9
+    },
+    {
+      "threshold": 0.9,
+      "margin": 0.02,
+      "intent_accuracy": 0.633,
+      "topic_f1": 0,
+      "strict_accuracy": 0.133,
+      "unclear_rate": 0.9
+    },
+    {
+      "threshold": 0.9,
+      "margin": 0.03,
+      "intent_accuracy": 0.633,
+      "topic_f1": 0,
+      "strict_accuracy": 0.133,
+      "unclear_rate": 0.9
+    }
+  ]
+}

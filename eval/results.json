@@ -1,0 +1,26 @@
+{
+  "dataset": "openlanguagedata/flores_plus devtest",
+  "n_sentences": 100,
+  "model": "Xenova/nllb-200-distilled-600M (ONNX q8, transformers.js)",
+  "confidence_model": "Xenova/multilingual-e5-small (ONNX q8)",
+  "chrF": {
+    "eng-spa": 55.51,
+    "eng-quy_direct": 31.25,
+    "eng-spa-quy_pivot": 32.08
+  },
+  "best_qu_route": "pivot",
+  "qu_confidence_signals": {
+    "e5_cosine": {
+      "pearson_vs_sentence_chrF": 0.499,
+      "suggested_threshold": 0.91,
+      "f1_flagging_worst_quartile": 0.5,
+      "share_hidden": 0.18
+    },
+    "back_chrF": {
+      "pearson_vs_sentence_chrF": 0.429,
+      "suggested_threshold": 0.35,
+      "f1_flagging_worst_quartile": 0.595,
+      "share_hidden": 0.48
+    }
+  }
+}

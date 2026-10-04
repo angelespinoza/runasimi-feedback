@@ -1,0 +1,84 @@
+{
+  "_note": "Respuestas fijas al visitante. Noor solo completa los campos. 'qu' es BORRADOR escrito por Claude (quechua ayacuchano): debe revisarlo un hablante. Noor puede corregirlo antes de enviar.",
+  "slots": {
+    "price": {
+      "type": "text",
+      "es": "Precio",
+      "placeholder": "S/ 60"
+    },
+    "item": {
+      "type": "text",
+      "es": "Producto (en inglés)",
+      "placeholder": "a 1 kg bag of roasted coffee"
+    },
+    "date": {
+      "type": "date",
+      "es": "Fecha"
+    },
+    "maps": {
+      "type": "url",
+      "es": "Enlace de Google Maps de la finca",
+      "placeholder": "https://maps.app.goo.gl/..."
+    }
+  },
+  "templates": [
+    {
+      "id": "buy_coffee",
+      "intent": "buy_coffee",
+      "es": "Gracias por su visita. Sí, vendemos nuestro café tostado: {price} el kilo. Responda a este mensaje para pedirlo y lo preparamos.",
+      "en": "Thank you for visiting our farm! Yes, we sell our roasted coffee: {price} per kilo. Reply to this message to order and we will prepare it for you.",
+      "slots": [
+        "price"
+      ],
+      "qu": "Watukuwasqaykiwan anchata kusikuni. Ari, kafe tostasqaykutam rantikuyku: huk kilo {price}. Kay willakuyman kutichimuway, hinaptinqa allichasaqku."
+    },
+    {
+      "id": "price",
+      "intent": "price",
+      "es": "Gracias por su pregunta. {item} cuesta {price}. Responda a este mensaje si desea pedirlo.",
+      "en": "Thank you for your question! {item} costs {price}. Reply to this message if you would like to order.",
+      "slots": [
+        "item",
+        "price"
+      ],
+      "qu": "Tapukuwasqaykimanta añay. {item} {price} chaniyuqmi. Munaspaqa kay willakuyman kutichimuway."
+    },
+    {
+      "id": "booking",
+      "intent": "booking",
+      "es": "Nos encantaría recibirle. Tenemos espacio el {date}. El tour cuesta {price} por persona. Responda a este mensaje para confirmar.",
+      "en": "We would love to host you! We have availability on {date}. The tour costs {price} per person. Reply to this message to confirm.",
+      "slots": [
+        "date",
+        "price"
+      ],
+      "qu": "Chaskiyta anchata munaykum. {date} punchawpi sitio kanmi. Sapa runa {price} chaniyuqmi. Kay willakuyman kutichimuway, hinaspa reservasaqku."
+    },
+    {
+      "id": "location",
+      "intent": "location",
+      "es": "Así puede llegar a la finca: {maps}. Escríbanos si se pierde en el camino.",
+      "en": "Here is how to reach the farm: {maps}. Message us if you get lost on the way.",
+      "slots": [
+        "maps"
+      ],
+      "qu": "Fincaman chayanaykipaq: {maps}. Ñanpi chinkaspaqa qillqamuwayku."
+    },
+    {
+      "id": "return",
+      "intent": "return",
+      "es": "¡Muchas gracias! Será un gusto recibirle de nuevo. Escríbanos cuando quiera volver y le reservamos un lugar.",
+      "en": "Thank you so much! We would be happy to welcome you back. Message us whenever you want to return and we will save you a spot.",
+      "slots": [],
+      "qu": "¡Anchata añay! Yapamanta chaskiyta munaykum. Kutimuyta munaspaqa qillqamuwayku, sitiotam waqaychapusqayki."
+    },
+    {
+      "id": "thanks",
+      "intent": null,
+      "es": "Gracias por visitar nuestra finca cafetalera y por sus palabras. ¡Esperamos verle pronto!",
+      "en": "Thank you for visiting our coffee farm and for your kind words. We hope to see you again soon!",
+      "slots": [],
+      "qu": "Kafe fincaykuta watukuwasqaykimanta, sumaq rimasqaykimantapas añay. ¡Yapamanta rikunakusun!"
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+{"id": 0, "synthetic": true, "text": "The coffee tasting was amazing, can I buy roasted beans?", "topics": ["coffee_tasting"], "intent": "buy_coffee"}
+{"id": 1, "synthetic": true, "text": "We tried four kinds of coffee and the washed one was our favorite. How much is a bag?", "topics": ["coffee_tasting"], "intent": "price"}
+{"id": 2, "synthetic": true, "text": "Our guide was super patient with the kids. We want to come back in the summer.", "topics": ["guide"], "intent": "return"}
+{"id": 3, "synthetic": true, "text": "The views from the top of the farm were incredible.", "topics": ["landscape"], "intent": null}
+{"id": 4, "synthetic": true, "text": "Lunch was the best meal of our whole trip.", "topics": ["food"], "intent": null}
+{"id": 5, "synthetic": true, "text": "There was no toilet anywhere near the plantation.", "topics": ["missing"], "intent": null}
+{"id": 6, "synthetic": true, "text": "Could you send me directions from Ayacucho?", "topics": [], "intent": "location"}
+{"id": 7, "synthetic": true, "text": "My sister wants to bring her family in March, how can she reserve?", "topics": [], "intent": "booking"}
+{"id": 8, "synthetic": true, "text": "Honestly the coffee was too strong for my taste, but the hills were gorgeous.", "topics": ["coffee_tasting", "landscape"], "intent": null}
+{"id": 9, "synthetic": true, "text": "Thank you so much!", "topics": [], "intent": null}
+{"id": 10, "synthetic": true, "text": "Smelling the beans while they roasted was magical. Do you sell it online?", "topics": ["coffee_tasting"], "intent": "buy_coffee"}
+{"id": 11, "synthetic": true, "text": "The guide told us about three generations of coffee growers in her family.", "topics": ["guide"], "intent": null}
+{"id": 12, "synthetic": true, "text": "The potatoes and cheese at lunch were delicious.", "topics": ["food"], "intent": null}
+{"id": 13, "synthetic": true, "text": "I'd love to take two kilos home, what would that cost?", "topics": [], "intent": "price"}
+{"id": 14, "synthetic": true, "text": "We will return for the harvest, for sure.", "topics": [], "intent": "return"}
+{"id": 15, "synthetic": true, "text": "It was too hot and there was nowhere to sit in the shade.", "topics": ["missing"], "intent": null}
+{"id": 16, "synthetic": true, "text": "The walk between the coffee bushes with the mountains behind was beautiful.", "topics": ["landscape"], "intent": null}
+{"id": 17, "synthetic": true, "text": "How long is the drive from the main square?", "topics": [], "intent": "location"}
+{"id": 18, "synthetic": true, "text": "Is the tour available on Sunday mornings for six people?", "topics": [], "intent": "booking"}
+{"id": 19, "synthetic": true, "text": "Nice day.", "topics": [], "intent": null}
+{"id": 20, "synthetic": true, "text": "We learned how to tell the acidity and body of each coffee, very cool.", "topics": ["coffee_tasting"], "intent": null}
+{"id": 21, "synthetic": true, "text": "Our host was warm and funny and explained everything.", "topics": ["guide"], "intent": null}
+{"id": 22, "synthetic": true, "text": "The juice made from fruit picked that morning was wonderful.", "topics": ["food"], "intent": null}
+{"id": 23, "synthetic": true, "text": "I wanted to pay with a credit card but it was cash only.", "topics": ["missing"], "intent": null}
+{"id": 24, "synthetic": true, "text": "Can I get some coffee shipped to Canada?", "topics": [], "intent": "buy_coffee"}
+{"id": 25, "synthetic": true, "text": "What is the price for a group tour?", "topics": [], "intent": "price"}
+{"id": 26, "synthetic": true, "text": "Please share the exact pin location, our taxi got lost.", "topics": [], "intent": "location"}
+{"id": 27, "synthetic": true, "text": "We'd like to book again for our anniversary.", "topics": [], "intent": "booking"}
+{"id": 28, "synthetic": true, "text": "Definitely coming back next year with my parents.", "topics": [], "intent": "return"}
+{"id": 29, "synthetic": true, "text": "The valley looked like a painting at sunset.", "topics": ["landscape"], "intent": null}
+{"id": 30, "synthetic": true, "text": "Watching the whole process from cherry to cup was eye opening, and the guide knew so much.", "topics": ["coffee_tasting", "guide"], "intent": null}
+{"id": 31, "synthetic": true, "text": "The soup was delicious and the view from the dining table was amazing.", "topics": ["food", "landscape"], "intent": null}
+{"id": 32, "synthetic": true, "text": "No signs in English made it confusing to find the place.", "topics": ["missing"], "intent": null}
+{"id": 33, "synthetic": true, "text": "Where do I buy a bag of your beans?", "topics": [], "intent": "buy_coffee"}
+{"id": 34, "synthetic": true, "text": "Is a kilo of the roasted coffee expensive?", "topics": [], "intent": "price"}
+{"id": 35, "synthetic": true, "text": "The guide spoke clearly and answered every question.", "topics": ["guide"], "intent": null}
+{"id": 36, "synthetic": true, "text": "I'll recommend this to everyone and I'll be back.", "topics": [], "intent": "return"}
+{"id": 37, "synthetic": true, "text": "Can friends of mine reserve for the second week of November?", "topics": [], "intent": "booking"}
+{"id": 38, "synthetic": true, "text": "The road was muddy and nobody warned us to bring boots.", "topics": ["missing"], "intent": null}
+{"id": 39, "synthetic": true, "text": "I can't stop thinking about that coffee.", "topics": ["coffee_tasting"], "intent": null}
+{"id": 40, "synthetic": true, "text": "The homemade cake with coffee was a perfect ending.", "topics": ["food"], "intent": null}
+{"id": 41, "synthetic": true, "text": "Lovely green mountains and clean air.", "topics": ["landscape"], "intent": null}
+{"id": 42, "synthetic": true, "text": "Which bus goes to the farm?", "topics": [], "intent": "location"}
+{"id": 43, "synthetic": true, "text": "The coffee testing was great, I want to buy a bag for my dad.", "topics": ["coffee_tasting"], "intent": "buy_coffee"}
+{"id": 44, "synthetic": true, "text": "Everything was okay I guess.", "topics": [], "intent": null}
+{"id": 45, "synthetic": true, "text": "She showed us how to pick only the red cherries, she is a great teacher.", "topics": ["guide"], "intent": null}
+{"id": 46, "synthetic": true, "text": "We wish the tour had been longer, it ended too fast.", "topics": ["missing"], "intent": null}
+{"id": 47, "synthetic": true, "text": "How much does the tasting cost per person?", "topics": [], "intent": "price"}
+{"id": 48, "synthetic": true, "text": "The trout they served was fresh and tasty.", "topics": ["food"], "intent": null}
+{"id": 49, "synthetic": true, "text": "Would love to visit again during the flowering season.", "topics": [], "intent": "return"}
+{"id": 50, "synthetic": true, "text": "Can I order coffee for my café back home?", "topics": [], "intent": "buy_coffee"}
+{"id": 51, "synthetic": true, "text": "How do we get there from the airport?", "topics": [], "intent": "location"}
+{"id": 52, "synthetic": true, "text": "Is there room for a school group in April?", "topics": [], "intent": "booking"}
+{"id": 53, "synthetic": true, "text": "The panorama from the lookout point took my breath away.", "topics": ["landscape"], "intent": null}
+{"id": 54, "synthetic": true, "text": "The cupping session taught me so much.", "topics": ["coffee_tasting"], "intent": null}
+{"id": 55, "synthetic": true, "text": "Bring more water next time, we ran out and there was none to buy.", "topics": ["missing"], "intent": null}
+{"id": 56, "synthetic": true, "text": "Our guide made the day special.", "topics": ["guide"], "intent": null}
+{"id": 57, "synthetic": true, "text": "Breakfast with fresh bread and coffee was lovely, how much is the coffee?", "topics": ["food"], "intent": "price"}
+{"id": 58, "synthetic": true, "text": "We had fun, the dog was cute.", "topics": [], "intent": null}
+{"id": 59, "synthetic": true, "text": "Amazing coffee, beautiful place, we'll come back!", "topics": ["coffee_tasting", "landscape"], "intent": "return"}

@@ -1,0 +1,22 @@
+{
+  "consent.recording": {
+    "en": "I agree to record my voice review. The audio is deleted after it is processed.",
+    "es": "Acepto grabar mi reseña de voz. El audio se borra después de procesarse.",
+    "qu": "Rimasqay grabasqa kananpaq ari nini. Audioqa llamkachisqa kaptinmi chinkachisqa kanqa."
+  },
+  "consent.messages": {
+    "en": "I agree to receive follow-up messages on WhatsApp.",
+    "es": "Acepto recibir mensajes de seguimiento por WhatsApp.",
+    "qu": "WhatsApp nisqapi willakuykunata chaskinaypaq ari nini."
+  },
+  "consent.name": {
+    "en": "Name (optional)",
+    "es": "Nombre (opcional)",
+    "qu": "Sutiyki (munaspaqa)"
+  },
+  "consent.phone": {
+    "en": "WhatsApp number with country code",
+    "es": "Número de WhatsApp con código de país",
+    "qu": "WhatsApp numeroyki, suyuykipa codigonwan"
+  }
+}
