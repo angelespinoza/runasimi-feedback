@@ -1,0 +1,150 @@
+{
+  "model": "onnx-community/Qwen3-0.6B-ONNX (q8, Node CPU)",
+  "load_seconds": 1,
+  "prompt_tokens": 431,
+  "new_tokens": 54,
+  "gen_seconds": 5.9,
+  "tokens_per_second": 9.2,
+  "reviews": [
+    {
+      "id": "R1",
+      "src": "app",
+      "en": "Our guide was super patient with the kids. We want to come back in the summer.",
+      "es": "Nuestro guía fue muy paciente con los niños. Queremos volver en verano."
+    },
+    {
+      "id": "R2",
+      "src": "app",
+      "en": "Honestly the coffee was too strong for my taste, but the hills were gorgeous.",
+      "es": "La verdad es que el café era demasiado fuerte para mi gusto, pero las colinas eran hermosas."
+    },
+    {
+      "id": "R3",
+      "src": "app",
+      "en": "Lunch was the best meal of our whole trip.",
+      "es": "El almuerzo fue la mejor comida de todo nuestro viaje."
+    },
+    {
+      "id": "R4",
+      "src": "synthetic",
+      "en": "There was no toilet anywhere near the plantation.",
+      "es": "No había inodoro cerca de la plantación."
+    },
+    {
+      "id": "R5",
+      "src": "synthetic",
+      "en": "It was too hot and there was nowhere to sit in the shade.",
+      "es": "Hacía demasiado calor y no había donde sentarse a la sombra."
+    },
+    {
+      "id": "R6",
+      "src": "synthetic",
+      "en": "I wanted to pay with a credit card but it was cash only.",
+      "es": "Quería pagar con tarjeta de crédito pero era sólo en efectivo."
+    },
+    {
+      "id": "R7",
+      "src": "synthetic",
+      "en": "No signs in English made it confusing to find the place.",
+      "es": "Ningún signo en inglés hizo que fuera confuso encontrar el lugar."
+    },
+    {
+      "id": "R8",
+      "src": "synthetic",
+      "en": "The road was muddy and nobody warned us to bring boots.",
+      "es": "El camino estaba fangoso y nadie nos advirtió que traejésemos botas."
+    },
+    {
+      "id": "R9",
+      "src": "synthetic",
+      "en": "Bring more water next time, we ran out and there was none to buy.",
+      "es": "La próxima vez traemos más agua, nos quedamos sin nada que comprar."
+    }
+  ],
+  "raw_output": "- Poner un lavamanos con jabón junto al comedor. [R2]  \n- Esperar a los visitantes en la parada del bus. [R3]  \n- Comer algo más rico que el usual. [R3]",
+  "recommendations": [
+    {
+      "line": "- Poner un lavamanos con jabón junto al comedor. [R2]",
+      "text": "Poner un lavamanos con jabón junto al comedor.",
+      "cites": [
+        2
+      ],
+      "grounding": 0.803,
+      "kept": true,
+      "reason": null,
+      "clauses": [
+        {
+          "es": "Poner un lavamanos con jabón junto al comedor.",
+          "qu": "Chaypi, chawpipipi t'aqasqa t'aqapi t'ant'awan t'ak'ach'aq t'achach'a.",
+          "back": "En el centro, se encuentra una pequeña ventana de pan.",
+          "chrF": 0.137,
+          "showQu": false
+        }
+      ],
+      "display": "Poner un lavamanos con jabón junto al comedor."
+    },
+    {
+      "line": "- Esperar a los visitantes en la parada del bus. [R3]",
+      "text": "Esperar a los visitantes en la parada del bus.",
+      "cites": [
+        3
+      ],
+      "grounding": 0.817,
+      "kept": true,
+      "reason": null,
+      "clauses": [
+        {
+          "es": "Esperar a los visitantes en la parada del bus.",
+          "qu": "Busoman chayamunankunata suyakunapaq.",
+          "back": "Esperar el autobús.",
+          "chrF": 0.201,
+          "showQu": false
+        }
+      ],
+      "display": "Esperar a los visitantes en la parada del bus."
+    },
+    {
+      "line": "- Comer algo más rico que el usual. [R3]",
+      "text": "Comer algo más rico que el usual.",
+      "cites": [
+        3
+      ],
+      "grounding": 0.888,
+      "kept": true,
+      "reason": null,
+      "clauses": [
+        {
+          "es": "Comer algo más rico que el usual.",
+          "qu": "Chayqa aswan allinmi.",
+          "back": "Es mejor.",
+          "chrF": 0.058,
+          "showQu": false
+        }
+      ],
+      "display": "Comer algo más rico que el usual."
+    }
+  ],
+  "kept": 3,
+  "dropped": 0,
+  "quechua_share_chars": 0,
+  "shown": [
+    {
+      "display": "Poner un lavamanos con jabón junto al comedor.",
+      "cites": [
+        2
+      ]
+    },
+    {
+      "display": "Esperar a los visitantes en la parada del bus.",
+      "cites": [
+        3
+      ]
+    },
+    {
+      "display": "Comer algo más rico que el usual.",
+      "cites": [
+        3
+      ]
+    }
+  ]
+}
